@@ -28,9 +28,9 @@ Table of Contents
 ## Jenkins Pipeline
 | Name                           | Comment                                                          |
 | :----------------------------- | --------------------------------------------------------------   |
+| Specify parameter to run jobs  | `build job:'job1', parameters:[string(name:'name1', value:va1)]` |
 | Run job in different agents    | `node($agent_label) {...}`                                       |
 | Use boolean parameter          | `if (is_true == "false") {...}`                                  |
-| Specify parameter to run jobs  | `build job:'job1', parameters:[string(name:'name1', value:va1)]` |
 | Ask for user input             | `stage('stage2'){ input "OK to go?" }`                           |
   
 ## Array
