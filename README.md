@@ -35,27 +35,34 @@ Table of Contents
   
 ## Array
 
-| Name                            | Comment                                       |
-| :-----------------------------  | --------------------------------------------  |
-| Iterate a list                  | `(1..3).each { println "Number ${it}"}`       |
+| Name                           | Comment                                      |
+| :----------------------------- | -------------------------------------------- |
+| Iterate a list                 | `(1..3).each { println "Number ${it}"}`      |
+| Iterate a list                 | `for(item in [1,2,3,4]){ println item }`     |
+| Add item to list               | `def alist = [10, 9, 8]; alist << 7`         |
+| List size                      | `def alist = [10, 9, 8]; alist.size()`       |
   
 ## String
 
 | Name                        | Comment                                              |
 | :------------------------   | ---------------------------------------------------- |
 | Print stdout                | `echo 'Action is done'`                              |
+| Print stdout                | `println "Hello World"`                              |
 | Split string with delimiter | `'1128-2'.tokenize( '-' )`                           |
 
 ## Integer
 
-| Name          | Comment        |
-| :------------ | -------------- |
-
+| Name             | Comment                                          |
+| :------------    | ------------------------------------------------ |
+| Basic caculation | `def a = 3, b = 7; println "$a + $b = ${a + b}"` |
+  
 ## Dict/Hashmap/Map
 
-| Name                  | Comment                          |
-| :-------------------  | -------------------------------- |
-
+| Name                 | Comment                                        |
+| :------------------- | ---------------------------------------------- |
+| Create a map         | `def m = ['fruit':'Apple', 'veggie':'Carrot']` |
+| Add an item to map   | `m.put('denny','hello')`                       |
+  
 ## Files
 
 | Name                            | Comment                                   |
