@@ -11,23 +11,17 @@ Table of Contents
 =================
 
    * [cheatsheet-jenkins-groovy-A4](#cheatsheet-jenkins-groovy-A4)
-      * [Syntax Sugar: From Python To Golang](#syntax-sugar-from-python-to-golang)
-      * [Golang Compact Coding](#golang-compact-coding)
       * [Array](#array)
       * [String](#string)
       * [Integer](#integer)
       * [Dict/Hashmap/Map](#dicthashmapmap)
-      * [Goroutines](#goroutines)
-      * [Files &amp; Folders](#files--folders)
-      * [Bit Operator](#bit-operator)
       * [Math](#math)
-      * [queue/heapq](#queueheapq)
    * [Code snippets](#code-snippets)
    * [More links](#more-links)
 
 <a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 
-**Golang CheatSheet**: https://github.com/DennyZhang/cheatsheet-golang-A4
+**Groovy CheatSheet**: https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4
 
 ## Array
 
