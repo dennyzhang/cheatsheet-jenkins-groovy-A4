@@ -67,7 +67,7 @@ Table of Contents
 
 | Name                            | Comment                                   |
 | :------------------------------ | ----------------------------------------- |
-| Read file content as a variable | `def seconds = readFile("/tmp/test.txt")` |
+| Read file content as a variable | `def content = readFile("/tmp/test.txt")` |
   
 ## Math
 
@@ -77,6 +77,7 @@ Table of Contents
 # Code snippets
 
 # More links
+- groovy-lang.org: http://groovy-lang.org/documentation.html#gettingstarted
 
 TODO: Need to automatically generate A4 pdf
 
