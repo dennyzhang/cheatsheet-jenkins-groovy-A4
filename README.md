@@ -11,10 +11,12 @@ Table of Contents
 =================
 
    * [cheatsheet-jenkins-groovy-A4](#cheatsheet-jenkins-groovy-A4)
+      * [Jenkins Pipeline](#jenkins-pipeline)
       * [Array](#array)
       * [String](#string)
       * [Integer](#integer)
       * [Dict/Hashmap/Map](#dicthashmapmap)
+      * [Files](#files)
       * [Math](#math)
    * [Code snippets](#code-snippets)
    * [More links](#more-links)
@@ -23,6 +25,14 @@ Table of Contents
 
 **Groovy CheatSheet**: https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4
 
+## Jenkins Pipeline
+| Name                           | Comment                                                          |
+| :----------------------------- | --------------------------------------------------------------   |
+| Run job in different agents    | `node($agent_label) {...}`                                       |
+| Use boolean parameter          | `if (is_true == "false") {...}`                                  |
+| Specify parameter to run jobs  | `build job:'job1', parameters:[string(name:'name1', value:va1)]` |
+| Ask for user input             | `stage('stage2'){ input "OK to go?" }                            | 
+  
 ## Array
 
 | Name                            | Comment                                       |
@@ -34,6 +44,7 @@ Table of Contents
 | Name                        | Comment                                              |
 | :------------------------   | ---------------------------------------------------- |
 | Split string with delimiter | `'1128-2'.tokenize( '-' )`                           |
+| Print stdout                | `echo 'Action is done'`                              |
 
 ## Integer
 
@@ -44,6 +55,12 @@ Table of Contents
 
 | Name                  | Comment                          |
 | :-------------------  | -------------------------------- |
+
+## Files
+
+| Name                            | Comment                                   |
+| :------------------------------ | ----------------------------------------- |
+| Read file content as a variable | `def seconds = readFile("/tmp/test.txt")` |
   
 ## Math
 
