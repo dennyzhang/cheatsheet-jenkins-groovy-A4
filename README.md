@@ -26,14 +26,15 @@ Table of Contents
 **Groovy CheatSheet**: https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4
 
 ## Jenkins Pipeline
-| Name                                      | Comment                                                                          |
-| :--------------------------------         | --------------------------------------------------------------                   |
-| Specify parameter to run jobs             | `build job:'job1', parameters:[string(name:'name1', value:va1)]`                 |
-| Run job in different agents               | `node($agent_label) {...}`                                                       |
-| Use boolean parameter                     | `if (is_true == "false") {...}`                                                  |
-| Ask for user input                        | `stage('stage2'){ input "OK to go?" }`                                           |
-| Actively fail current pipeline job        | `error("Build failed because of this and that..")`                               |
-| Keep going when previous stage has failed | [pipeline_keep_going_with_errors.groovy](pipeline_keep_going_with_errors.groovy) |
+| Name                                      | Comment                                                          |
+| :--------------------------------         | --------------------------------------------------------------   |
+| Specify parameter to run jobs             | `build job:'job1', parameters:[string(name:'name1', value:va1)]` |
+| Run job in different agents               | `node($agent_label) {...}`                                       |
+| Use boolean parameter                     | `if (is_true == "false") {...}`                                  |
+| Ask for user input                        | `stage('stage2'){ input "OK to go?" }`                           |
+| Actively fail current pipeline job        | `error("Build failed because of this and that..")`               |
+| Keep going when previous stage has failed | [keep_going_with_errors.groovy](keep_going_with_errors.groovy)   |
+| Send slack notification in pipeline       | [slack_notification.groovy](slack_notification.groovy)           |
   
 ## Array
 

@@ -3,13 +3,13 @@
 // Licensed under MIT
 // https://www.dennyzhang.com/wp-content/mit_license.txt
 //
-// File: pipeline_keep_going_with_errors.groovy
+// File: keep_going_with_errors.groovy
 // Author : Denny <https://www.dennyzhang.com/contact>
 // Description :
 // https://stackoverflow.com/questions/36852310/show-a-jenkins-pipeline-stage-as-failed-without-failing-the-whole-job
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2018-04-20 08:32:10>
+// Updated: Time-stamp: <2018-04-20 08:34:49>
 //-------------------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////////////
 // Stages with shell commands
@@ -50,4 +50,4 @@ stage('deploy') {
     }
 }
 ////////////////////////////////////////////////////////////////////////////////
-// File: pipeline_keep_going_with_errors.groovy ends
+// File: keep_going_with_errors.groovy ends
