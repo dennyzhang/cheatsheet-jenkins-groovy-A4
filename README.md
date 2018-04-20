@@ -81,6 +81,7 @@ Table of Contents
 
 # More links
 - groovy-lang.org: http://groovy-lang.org/documentation.html#gettingstarted
+- https://jenkins.io/doc/
 
 TODO: Need to automatically generate A4 pdf
 
