@@ -52,17 +52,17 @@ See more CheatSheets from Denny: [[https://jenkins-groovyhub.com/topics/denny-ch
   
 ** String
 
-| Name                        | Comment                     |
-|-----------------------------+-----------------------------|
-| Print stdout                | =echo 'Action is done' =    |
-| Print stdout                | =println "Hello World" =    |
-| Split string with delimiter | ='1128-2'.tokenize ( '-' ) = |
+| Name                        | Comment                   |
+|-----------------------------+---------------------------|
+| Print stdout                | echo 'Action is done'     |
+| Print stdout                | println "Hello World"     |
+| Split string with delimiter | '1128-2'.tokenize ( '-' ) |
 
 ** Integer
 
 | Name             | Comment                                          |
 |------------------+--------------------------------------------------|
-| Basic caculation | =def a = 3, b = 7; println "$a + $b = ${a + b}" = |
+| Basic caculation | def a = 3, b = 7; println "$a + $b = ${a + b}"    |
   
 ** Dict/Hashmap/Map
 
