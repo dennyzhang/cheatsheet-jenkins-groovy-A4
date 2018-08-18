@@ -7,16 +7,16 @@ Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy, Category:
 
 #+BEGIN_HTML
 <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
-<a href="https://github.com/DennyZhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
+<a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
-<a href="https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<a href="https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
 <br/><br/>
 
 <a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
 #+END_HTML
 
-File me [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
+File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
 
 See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 ** Jenkins Pipeline
@@ -80,7 +80,7 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 <a href="https://www.dennyzhang.com"><img align="right" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 
 <a href="https://www.linkedin.com/in/dennyzhang001"><img align="bottom" src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
-<a href="https://github.com/DennyZhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
+<a href="https://github.com/dennyzhang"><img align="bottom"src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
 <a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img align="bottom" src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
 #+END_HTML
 * org-mode configuration                                           :noexport:
