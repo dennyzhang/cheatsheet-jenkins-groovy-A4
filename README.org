@@ -6,13 +6,15 @@
 Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy, Category: [[https://cheatsheet.dennyzhang.com/category/languages/][languages]]
 
 #+BEGIN_HTML
-<a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a>
-<a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a>
-<a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a>
-<a href="https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
+<div id="the whole thing" style="overflow: hidden;">
+<div style="float: left; padding: 5px"> <a href="https://www.linkedin.com/in/dennyzhang001"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/linkedin.png" alt="linkedin" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://github.com/dennyzhang"><img src="https://www.dennyzhang.com/wp-content/uploads/sns/github.png" alt="github" /></a></div>
+<div style="float: left; padding: 5px"><a href="https://www.dennyzhang.com/slack" target="_blank" rel="nofollow"><img src="https://slack.dennyzhang.com/badge.svg" alt="slack"/></a></div>
+</div>
+
+<a href="https://github.com/dennyzhang/cheatsheet-kubernetes-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
 
 <br/><br/>
-
 <a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
 #+END_HTML
 
@@ -24,7 +26,7 @@ See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][
 |-------------------------------------------+--------------------------------------------------------------------------|
 | Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]=         |
 | Run job in different agents               | =node($agent_label) {...}=                                               |
-| Use boolean parameter                     | =if (is_true == "false") {...}=                                          |
+| Use boolean parameter                     | if (is_true == "false") {...}                                            |
 | Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                                   |
 | Actively fail current pipeline job        | =error("Build failed because of this and that..")=                       |
 | Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep_going_with_errors.groovy][keep_going_with_errors.groovy]]                                            |
