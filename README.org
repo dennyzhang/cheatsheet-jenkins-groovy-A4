@@ -1,9 +1,8 @@
 * Jenkins Groovy CheatSheet                                                     :Languages:
 :PROPERTIES:
 :type:     groovy
+:export_file_name: cheatsheet-jenkins-groovy-A4.pdf
 :END:
-
-Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy, Category: [[https://cheatsheet.dennyzhang.com/category/languages/][languages]]
 
 #+BEGIN_HTML
 <a href="https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4"><img align="right" width="200" height="183" src="https://www.dennyzhang.com/wp-content/uploads/denny/watermark/github.png" /></a>
@@ -16,6 +15,10 @@ Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy, Category:
 <br/><br/>
 <a href="http://makeapullrequest.com" target="_blank" rel="nofollow"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
 #+END_HTML
+
+- PDF Link: [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/cheatsheet-jenkins-groovy-A4.pdf][cheatsheet-jenkins-groovy-A4.pdf]]
+- Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy
+- Category: [[https://cheatsheet.dennyzhang.com/category/languages/][languages]]
 
 File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
 
