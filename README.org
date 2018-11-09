@@ -18,10 +18,9 @@
 
 - PDF Link: [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/cheatsheet-jenkins-groovy-A4.pdf][cheatsheet-jenkins-groovy-A4.pdf]], Category: [[https://cheatsheet.dennyzhang.com/category/languages/][languages]]
 - Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-A4
+- Related posts: [[https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-A4][Jenkins CheatSheet]], [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
 File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
-
-See more CheatSheets from Denny: [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 ** Jenkins Pipeline
 | Name                                      | Comment                                                                  |
 |-------------------------------------------+--------------------------------------------------------------------------|
