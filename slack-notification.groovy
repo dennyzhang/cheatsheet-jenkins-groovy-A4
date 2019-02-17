@@ -11,7 +11,7 @@
 //     https://jenkins.io/blog/2016/07/18/pipeline-notifications/
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2018-04-20 08:41:32>
+// Updated: Time-stamp: <2019-02-16 21:47:20>
 //-------------------------------------------------------------------
 node(agent_label) {
    
@@ -53,4 +53,3 @@ node(agent_label) {
       }
   }
 }
-// File: slack_notification.groovy ends

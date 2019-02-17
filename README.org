@@ -35,11 +35,18 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                       |
 | Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                  |
 | Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                    |
+** Config Jenkins Via Groovy
+| Name                                    | Comment                                                |
+|-----------------------------------------+--------------------------------------------------------|
+| Set timezone for jenkins                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                        |
+| Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                   |
+| Configure default view                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                   |
+| Add default jobs                        | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/= |
 ** Groovy Basic
 | Name                            | Comment                                                                |
 |---------------------------------+------------------------------------------------------------------------|
-| Print stdout                    | =echo 'Action is done'=, =println "Hello World"=                       |
 | Read file content as a variable | =def env = System.getenv()=, =def content = readFile("/tmp/test.txt")= |
+| Print stdout                    | echo 'Action is done', println "Hello World"                           |
 | Use boolean parameter           | if (istrue == "false") {...}                                           |
 | Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
 | Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |

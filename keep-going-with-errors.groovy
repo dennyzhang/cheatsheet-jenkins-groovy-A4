@@ -9,7 +9,7 @@
 // https://stackoverflow.com/questions/36852310/show-a-jenkins-pipeline-stage-as-failed-without-failing-the-whole-job
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2018-04-20 08:34:49>
+// Updated: Time-stamp: <2019-02-16 21:47:16>
 //-------------------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////////////
 // Stages with shell commands
@@ -49,5 +49,3 @@ stage('deploy') {
        echo "Cannot deploy without successful build" // it is important to have a deploy stage even here for the current visualization
     }
 }
-////////////////////////////////////////////////////////////////////////////////
-// File: keep_going_with_errors.groovy ends
