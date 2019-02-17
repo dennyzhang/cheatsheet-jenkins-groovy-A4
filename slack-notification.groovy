@@ -9,9 +9,10 @@
 //     https://stackoverflow.com/questions/39140191/how-to-send-slack-notification-after-jenkins-pipeline-build-failed
 //     https://jenkins.io/doc/pipeline/steps/slack/
 //     https://jenkins.io/blog/2016/07/18/pipeline-notifications/
+// Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2019-02-16 21:47:20>
+// Updated: Time-stamp: <2019-02-16 22:01:54>
 //-------------------------------------------------------------------
 node(agent_label) {
    

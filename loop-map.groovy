@@ -1,3 +1,15 @@
+//-------------------------------------------------------------------
+// @copyright 2018 DennyZhang.com
+// Licensed under MIT
+// https://www.dennyzhang.com/wp-content/mit_license.txt
+//
+// File: loop-map.groovy
+// Author : Denny <https://www.dennyzhang.com/contact>
+// Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
+// --
+// Created : <2018-04-20>
+// Updated: Time-stamp: <2019-02-16 22:04:45>
+//-------------------------------------------------------------------
 def sampleMap = ['Key#1':'Value#1', 'Key#2':'Value#2']
 println sampleMap['Key#1']
 node{
