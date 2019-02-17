@@ -36,12 +36,15 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                  |
 | Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                    |
 ** Config Jenkins Via Groovy
-| Name                                    | Comment                                                |
-|-----------------------------------------+--------------------------------------------------------|
-| Set timezone for jenkins                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                        |
-| Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                   |
-| Configure default view                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                   |
-| Add default jobs                        | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/= |
+| Name                                     | Comment                                                                  |
+|------------------------------------------+--------------------------------------------------------------------------|
+| Set timezone for jenkins                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                                          |
+| Create jenkins views and add jobs to it  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
+| Configure default view                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
+| [[https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs][Add default jobs]]                         | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/=                   |
+| [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =-Djenkins.install.runSetupWizard=false=                                 |
+| [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]                  | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
+| Configure jenkins slave Node             |                                                                          |
 ** Groovy Basic
 | Name                            | Comment                                                                |
 |---------------------------------+------------------------------------------------------------------------|
@@ -50,12 +53,16 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Use boolean parameter           | if (istrue == "false") {...}                                           |
 | Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
 | Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |
+| Run groovy online               | [[https://groovyconsole.appspot.com][SaaS: Groovy Web console]]                                               |
+| Run groovy script from Jenkins  | [[https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console][Link: Jenkins Script Console]]                                           |
+| Reference                       | [[http://groovy-lang.org/documentation.htm][Link: Apache Groovy]]                                                    |
 ** Groovy String
 | Name                           | Comment                  |
 |--------------------------------+--------------------------|
 | [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][Convert list to string]]         | =l.join(";")=            |
 | Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]] |
 | Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]      |
+| [[http://groovy-lang.org/json.html][Convert string to json]]         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]]    |
 ** Groovy Array
 | Name                        | Comment                                  |
 |-----------------------------+------------------------------------------|
@@ -71,27 +78,14 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Add an item to map  | =m.put('denny','hello')=                       |
 | Check if key exists | =m.containsKey('key1')=                        |
 | Loop a map          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]                                |
+#+BEGIN_HTML
+<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
 ** Groovy Network
 | Name                            | Comment                                                                  |
 |---------------------------------+--------------------------------------------------------------------------|
 | Get hostname by ip              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]                                                |
 | validate user input: ip address | =assert ip_address.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")= |
-** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-** Jenkins Summary
-| Name                              | Command                          |
-|-----------------------------------+----------------------------------|
-| Test groovy code from Jenkins GUI | Manage Jenkins -> Script Console |
-| Jenkins Slave Node                |                                  |
-** Jenkins Plugins
-| Name                        | Command                 |
-|-----------------------------+-------------------------|
-| Backup jenkins              | [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]       |
-| Load the ssh key            | [[https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin][Credentials Plugin]]      |
-| Add timestamp to job output | [[https://wiki.jenkins-ci.org/display/JENKINS/Timestamper][Timestamper Plugin]]      |
-| Create dashboard            | [[https://wiki.jenkins-ci.org/display/JENKINS/Dashboard+View][Dashboard View Plugin]]   |
-| Abort if job takes too long | [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]    |
-| Retry failed a job          | [[https://wiki.jenkins-ci.org/display/JENKINS/Naginator+Plugin][Naginator Plugin]]        |
-| Backup job configuration    | JobConfigHistory Plugin |
 ** Jenkins Groovy
 | Name                           | Command                          |
 |--------------------------------+----------------------------------|
@@ -102,10 +96,20 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Loop a map                     | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]              |
 | Get hostname by ip             | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]    |
 | Convert list to string         | =l.join(";")=, [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][link: groovy list]] |
+** Jenkins Plugins
+| Name                        | Command                 |
+|-----------------------------+-------------------------|
+| Backup jenkins              | [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]       |
+| Load the ssh key            | [[https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin][Credentials Plugin]]      |
+| Add timestamp to job output | [[https://wiki.jenkins-ci.org/display/JENKINS/Timestamper][Timestamper Plugin]]      |
+| Create dashboard            | [[https://wiki.jenkins-ci.org/display/JENKINS/Dashboard+View][Dashboard View Plugin]]   |
+| Abort if job takes too long | [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]    |
+| Retry failed a job          | [[https://wiki.jenkins-ci.org/display/JENKINS/Naginator+Plugin][Naginator Plugin]]        |
+| Backup job configuration    | JobConfigHistory Plugin |
 ** More Resources
+http://groovy-lang.org/documentation.html#gettingstarted
 
-- groovy-lang.org: http://groovy-lang.org/documentation.html#gettingstarted
-- https://jenkins.io/doc/
+https://jenkins.io/doc/
 
 License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
 #+BEGIN_HTML
@@ -389,106 +393,11 @@ curl -X GET http://dennyzhang:lrpChangeMe1@myjenkins:18080/job/dennytestRehearsa
 curl -X POST http://dennyzhang:lrpChangeMe1@myjenkins:18080/job/dennytestRehearsal/config.xml --data-binary "@mymodifiedlocalconfig.xml"
 ** TODO why has_error variable hasn't passed: http://myjenkins:18080/job/CheckDNSPropagation/14/console
 ** TODO jenkins docker image: why /var/jenkins_home/.bashrc folder is missing?
-** Blog: Just Enough Groovy For Jenkins
-https://github.com/DennyZhang/jenkins-groovy-study
-*** HALF Start a GitHub repo: groovy-for-jenkins
-*** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-*** Typical Scenarios
-*** How to Test Groovy: https://groovyconsole.appspot.com
-- webconsole: https://groovyconsole.appspot.com
-- Jenkins console
-*** Official documentation: http://groovy-lang.org/documentation.html
-*** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-*** TODO Use groovy to add a user
-*** TODO Use groovy to only allow register users use Jenkins
-*** TODO Use groovy script to restart jenkins
-*** TODO Use groovy to install a jenkins plugin
-*** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-*** String Manipulation
-**** DONE cast string to json
-  CLOSED: [2017-11-28 Tue 18:38]
-http://groovy-lang.org/json.html
-https://groups.google.com/forum/#!topic/job-dsl-plugin/LDuefVxAPYo
-#+BEGIN_EXAMPLE
-import groovy.json.JsonSlurper
-def jsonSlurper = new JsonSlurper()
-def object = jsonSlurper.parseText('{ "name": "John Doe" } /* some comment */')
-assert object instanceof Map
-assert object.name == 'John Doe'
-print object.name
-#+END_EXAMPLE
-*** Read/Write File
-- groovy list all environment variables
-#+BEGIN_SRC groovy
-https://support.cloudbees.com/hc/en-us/articles/230610987-Pipeline-How-to-print-out-env-variables-available-in-a-build
-sh 'env > env.txt'
-for (String i : readFile('env.txt').split("\r?\n")) {
-    println i
-}
-
-http://shrubbery.homeip.net/c/display/W/Environment+Variables+and+Groovy
-def env = System.getenv()
-def baseDir = env['BASE_DIR']
-#+END_SRC
-
-*** Validate User Input
-- string is not empty
-#+BEGIN_SRC groovy
-assert $myStr != ''
-#+END_SRC
-*** List variable
-#+BEGIN_SRC groovy
-http://grails.asia/groovy-for-loop-examples
-
-String ip_hostname_list = """ 138.187.185.175  cluster-do-jenkins
-   138.68.544.46  cluster-do-lb-1
-  138.68.544.514  cluster-do-lb-5
-   164.557.8.184  cluster-do-db-01
-  138.187.514.83  cluster-do-db-05   """;
-
-List<String> l = new ArrayList<String>();
-for (entry in ip_hostname_list.split("\n")) {
-    entry = entry.trim()
-    l.add(entry.split(" ")[0])
-}
-print l.join("\n")
-#+END_SRC
-http://grails.asia/groovy-for-loop-examples
-*** Regrep
-- Check whether ip address is valid
-*** Deal with Json
-#+BEGIN_SRC groovy
-import groovy.json.JsonSlurper
-
-def textJson = new File('testdata.json').text
-def jsonSlurper = new JsonSlurper()
-
-def list = jsonSlurper.parseText(textJson)
-
-def str_map = { item ->
-	println item.name + ':' + item.value
-}
-
-list.each str_map
-#+END_SRC
-*** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-*** Get more groovy scripts like above from GitHub
-*** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-*** HALF data cleanup for user input
-#+BEGIN_SRC groovy
-# remove trailing whitespace
-testString.trim()
-
-# replace
-testString.replace("\\", "/")
-#+END_SRC
-*** HALF check whether string is empty
-*** HALF check whether variable is in a list
-*** #  --8<-------------------------- separator ------------------------>8-- :noexport:
-*** BYPASS groovy working directory
-   CLOSED: [2017-08-30 Wed 09:11]
-https://stackoverflow.com/questions/18179200/how-to-change-the-current-working-directory-in-groovy
-*** TODO Jenkins Scripts not permitted to use new java.util.ArrayList
+** TODO Use groovy to add a user
+** TODO Use groovy to only allow register users use Jenkins
+** TODO Use groovy script to restart jenkins
+** TODO Use groovy to install a jenkins plugin
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
 ** TODO jenkins pipeline job: add node
 *** original one
 node {
@@ -993,24 +902,7 @@ https://wiki.jenkins.io/display/JENKINS/thinBackup
 https://issues.jenkins-ci.org/browse/JENKINS-13239
 
 Have you installed any plugin called Thin backup? if yes  it might  configured to shut down after back up, then change the setting.
-* TODO [#A] Find official doc for Jenkins Groovy code              :noexport:
-https://gist.github.com/jnbnyc/c6213d3d12c8f848a385
-* TODO [#A] Blog: Use helm to deployment 3 nodes Jenkins cluster in Kubernetes :noexport:
-brew install kubernetes-helm
-| Name                          | Summary |
-|-------------------------------+---------|
-| helm repo list                |         |
-| helm helm search mysql        |         |
-| helm inspect stable/mysql     |         |
-| helm install .                |         |
-| helm delete --purge ugly-newt |         |
-| helm list                     |         |
-| helm status $name             |         |
-** TODO How to configure kubernetes global configuration
-** use helm
-https://github.com/kubernetes/helm
-https://docs.helm.sh/using_helm/#quickstart-guide
-* TODO local notes                                                 :noexport:
+** #  --8<-------------------------- separator ------------------------>8-- :noexport:
 ** TODO Jenkins credential parameter
   http://steve-jansen.github.io/blog/2014/12/16/parsing-jenkins-secrets-in-a-shell-script/
 https://stackoverflow.com/questions/34815482/accessing-credentials-in-jenkins-with-the-credentials-parameter-plugin
@@ -1042,12 +934,23 @@ https://stackoverflow.com/questions/36088227/how-to-run-a-docker-command-in-jenk
 https://stackoverflow.com/questions/42859443/execute-docker-commands-in-jenkins-in-docker-container
 ** TODO Use AWS S3 for my critical backup: Jenkins configurations
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* DONE jenkins skip wizzard                                        :noexport:
-  CLOSED: [2019-02-07 Thu 00:35]
-https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins
--Djenkins.install.runSetupWizard=false 
-* DONE jenkins install seed jobs: /usr/share/jenkins/ref/jobs/     :noexport:
-  CLOSED: [2019-02-07 Thu 00:30]
-https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs
-* DONE [#A] jenkins upload jobs folder                             :noexport:
-  CLOSED: [2019-02-07 Thu 00:35]
+* TODO groovy challenges                                           :noexport:
+** 101
+Use groovy to add a test user in Jenkins
+For better security, use groovy to only allow registered user login
+Quiz:
+
+Once I have enabled Jenkins security, how my chef update will work?
+
+** 102
+Define a Jenkins pipeline job automatically
+Define a Jenkins job via Jenkinsfile script automatically
+For automated backup, enable and configure ThinBackup plugin via Groovy
+** 301
+Define a dummy Jenkins pipeline job using Jenkinsfile
+Define a Jenkins parameterized pipeline job using Jenkinsfile. It shall trigger another job.
+Quiz:
+
+Once I have enabled Jenkins security, how my chef update will work?
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO jenkins run docker container
