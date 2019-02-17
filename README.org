@@ -22,27 +22,32 @@
 
 File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
 ** Jenkins Pipeline
-| Name                                      | Comment                                                                  |
-|-------------------------------------------+--------------------------------------------------------------------------|
-| Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]=         |
-| Run job in different agents               | =node($agent_label) {...}=                                               |
-| Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                                   |
-| Actively fail current pipeline job        | =error("Build failed because of this and that..")=                       |
-| Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep-going-with-errors.groovy][keep-going-with-errors.groovy]]                                            |
-| Send slack notification in pipeline       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/slack-notification.groovy][slack-notification.groovy]]                                                |
+| Name                                      | Comment                                                          |
+|-------------------------------------------+------------------------------------------------------------------|
+| Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]= |
+| Run job in different agents               | =node($agent_label) {...}=                                       |
+| Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                           |
+| Actively fail current pipeline job        | =error("Build failed because of this and that..")=               |
+| Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep-going-with-errors.groovy][keep-going-with-errors.groovy]]                                    |
+| Send slack notification in pipeline       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/slack-notification.groovy][slack-notification.groovy]]                                        |
+| Pass parameter across jenkins jobs        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-pass-parameter.groovy][jenkinsfile-pass-parameter.groovy]]                                |
+| Set timeout & retry                       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-timeout-retry.groovy][jenkinsfile-timeout-retry.groovy]]                                 |
+| Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                       |
+| Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                  |
+| Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                    |
 ** Groovy Basic
 | Name                            | Comment                                                                |
 |---------------------------------+------------------------------------------------------------------------|
 | Print stdout                    | =echo 'Action is done'=, =println "Hello World"=                       |
 | Read file content as a variable | =def env = System.getenv()=, =def content = readFile("/tmp/test.txt")= |
-| Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
 | Use boolean parameter           | if (istrue == "false") {...}                                           |
+| Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
 | Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |
 ** Groovy String
 | Name                           | Comment                  |
 |--------------------------------+--------------------------|
-| Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]] |
 | [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][Convert list to string]]         | =l.join(";")=            |
+| Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]] |
 | Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]      |
 ** Groovy Array
 | Name                        | Comment                                  |
@@ -51,7 +56,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Iterate a list              | =(1..3).each { println "Number ${it}"}=  |
 | Add item to list            | =def alist = [10, 9, 8]; alist << 7=     |
 | List size                   | =def alist = [10, 9, 8]; alist.size()=   |
-| Split string with delimiter | ='1128-2'.tokenize ( '-' )=              |
+| Split string with delimiter | ='1128-2'.tokenize( '-' )=               |
 ** Groovy Dictionary
 | Name                | Comment                                        |
 |---------------------+------------------------------------------------|
@@ -80,14 +85,6 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Abort if job takes too long | [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]    |
 | Retry failed a job          | [[https://wiki.jenkins-ci.org/display/JENKINS/Naginator+Plugin][Naginator Plugin]]        |
 | Backup job configuration    | JobConfigHistory Plugin |
-** Jenkins Pipeline
-| Name                                 | Command                        |
-|--------------------------------------+--------------------------------|
-| Pass parameter across jenkins jobs   | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-pass-parameter][jenkinsfile-pass-parameter]] |
-| Set timeout & retry                  | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-timeout-retry][jenkinsfile-timeout-retry]]  |
-| Use finally to do cleanup            | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally][jenkinsfile-finally]]        |
-| Run jenkins jobs in a sequential way | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially][jenkinsfile-sequentially]]   |
-| Run jenkins jobs in parallel         | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly][jenkinsfile-parallelly]]     |
 ** Jenkins Groovy
 | Name                           | Command                          |
 |--------------------------------+----------------------------------|
