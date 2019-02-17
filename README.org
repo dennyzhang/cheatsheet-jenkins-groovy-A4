@@ -26,47 +26,44 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 |-------------------------------------------+--------------------------------------------------------------------------|
 | Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]=         |
 | Run job in different agents               | =node($agent_label) {...}=                                               |
-| Use boolean parameter                     | if (istrue == "false") {...}                                             |
 | Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                                   |
 | Actively fail current pipeline job        | =error("Build failed because of this and that..")=                       |
 | Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep-going-with-errors.groovy][keep-going-with-errors.groovy]]                                            |
 | Send slack notification in pipeline       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/slack-notification.groovy][slack-notification.groovy]]                                                |
-| validate user input: ip address           | =assert ip_address.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")= |
-| Read Environment Variables                | =def env = System.getenv()=                                              |
-| Print message to stdout                   | [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/print.groovy][print.groovy]]                                                             |
-| Get environment variables                 | [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/get-env.groovy][get-env.groovy]]                                                           |
-| Convert string to list                    | [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/split-string.groovy][split-string.groovy]]                                                      |
-| Create string with multi-lines            | [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/multi-line-string.groovy][multi-line-string.groovy]]                                                 |
-| Loop a map                                | [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/loop-map.groovy][loop-map.groovy]]                                                          |
-| Get hostname by ip                        | [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]                                                |
-| Convert list to string                    | =l.join(";")=, [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][link: groovy list]]                                         |
-** Array
-| Name             | Comment                                  |
-|------------------+------------------------------------------|
-| Iterate a list   | =(1..3).each { println "Number ${it}"}=  |
-| Iterate a list   | =for(item in [1,2,3,4]){ println item }= |
-| Add item to list | =def alist = [10, 9, 8]; alist << 7=     |
-| List size        | =def alist = [10, 9, 8]; alist.size()=   |
-** String
-| Name                        | Comment                   |
-|-----------------------------+---------------------------|
-| Print stdout                | echo 'Action is done'     |
-| Print stdout                | println "Hello World"     |
-| Split string with delimiter | '1128-2'.tokenize ( '-' ) |
-** Integer
-| Name             | Comment                                          |
-|------------------+--------------------------------------------------|
-| Basic caculation | def a = 3, b = 7; println "$a + $b = ${a + b}"    |
-** Dict/Hashmap/Map
+** Groovy Basic
+| Name                            | Comment                                                                |
+|---------------------------------+------------------------------------------------------------------------|
+| Print stdout                    | =echo 'Action is done'=, =println "Hello World"=                       |
+| Read file content as a variable | =def env = System.getenv()=, =def content = readFile("/tmp/test.txt")= |
+| Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
+| Use boolean parameter           | if (istrue == "false") {...}                                           |
+| Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |
+** Groovy String
+| Name                           | Comment                  |
+|--------------------------------+--------------------------|
+| Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]] |
+| [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][Convert list to string]]         | =l.join(";")=            |
+| Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]      |
+** Groovy Array
+| Name                        | Comment                                  |
+|-----------------------------+------------------------------------------|
+| Iterate a list              | =for(item in [1,2,3,4]){ println item }= |
+| Iterate a list              | =(1..3).each { println "Number ${it}"}=  |
+| Add item to list            | =def alist = [10, 9, 8]; alist << 7=     |
+| List size                   | =def alist = [10, 9, 8]; alist.size()=   |
+| Split string with delimiter | ='1128-2'.tokenize ( '-' )=              |
+** Groovy Dictionary
 | Name                | Comment                                        |
 |---------------------+------------------------------------------------|
 | Create a map        | =def m = ['fruit':'Apple', 'veggie':'Carrot']= |
 | Add an item to map  | =m.put('denny','hello')=                       |
 | Check if key exists | =m.containsKey('key1')=                        |
-** Files
-| Name                            | Comment                                   |
-|---------------------------------+-------------------------------------------|
-| Read file content as a variable | =def content = readFile("/tmp/test.txt")= |
+| Loop a map          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]                                |
+** Groovy Network
+| Name                            | Comment                                                                  |
+|---------------------------------+--------------------------------------------------------------------------|
+| Get hostname by ip              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]                                                |
+| validate user input: ip address | =assert ip_address.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")= |
 ** #  --8<-------------------------- separator ------------------------>8-- :noexport:
 ** Jenkins Summary
 | Name                              | Command                          |
@@ -86,20 +83,20 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 ** Jenkins Pipeline
 | Name                                 | Command                        |
 |--------------------------------------+--------------------------------|
-| Pass parameter across jenkins jobs   | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/jenkinsfile-pass-parameter][jenkinsfile-pass-parameter]] |
-| Set timeout & retry                  | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/jenkinsfile-timeout-retry][jenkinsfile-timeout-retry]]  |
-| Use finally to do cleanup            | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/jenkinsfile-finally][jenkinsfile-finally]]        |
-| Run jenkins jobs in a sequential way | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/jenkinsfile-sequentially][jenkinsfile-sequentially]]   |
-| Run jenkins jobs in parallel         | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/jenkinsfile-parallelly][jenkinsfile-parallelly]]     |
+| Pass parameter across jenkins jobs   | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-pass-parameter][jenkinsfile-pass-parameter]] |
+| Set timeout & retry                  | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-timeout-retry][jenkinsfile-timeout-retry]]  |
+| Use finally to do cleanup            | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally][jenkinsfile-finally]]        |
+| Run jenkins jobs in a sequential way | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially][jenkinsfile-sequentially]]   |
+| Run jenkins jobs in parallel         | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly][jenkinsfile-parallelly]]     |
 ** Jenkins Groovy
 | Name                           | Command                          |
 |--------------------------------+----------------------------------|
-| Print message to stdout        | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/print.groovy][print.groovy]]                 |
-| Get environment variables      | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/get-env.groovy][get-env.groovy]]               |
-| Convert string to list         | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/split-string.groovy][split-string.groovy]]          |
-| Create string with multi-lines | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/multi-line-string.groovy][multi-line-string.groovy]]     |
-| Loop a map                     | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/loop-map.groovy][loop-map.groovy]]              |
-| Get hostname by ip             | See [[https://github.com/dennyzhang/cheatsheet.dennyzhang.com/blob/master/cheatsheet-jenkins-groovy-A4/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]    |
+| Print message to stdout        | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/print.groovy][print.groovy]]                 |
+| Get environment variables      | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]               |
+| Convert string to list         | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]          |
+| Create string with multi-lines | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]]     |
+| Loop a map                     | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]              |
+| Get hostname by ip             | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]    |
 | Convert list to string         | =l.join(";")=, [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][link: groovy list]] |
 ** More Resources
 
