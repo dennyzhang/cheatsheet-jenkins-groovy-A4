@@ -21,11 +21,20 @@
 - Related posts: [[https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-A4][Jenkins CheatSheet]], [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
 File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
-** Jenkins Basic
-| Name                      | Comment                                   |
-|---------------------------+-------------------------------------------|
-| Deploy Jenkins via docker | https://hub.docker.com/r/jenkins/jenkins/ |
-
+** Config Jenkins Via Groovy
+| Name                                     | Comment                                                                  |
+|------------------------------------------+--------------------------------------------------------------------------|
+| Set timezone for jenkins                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                                          |
+| Create jenkins views and add jobs to it  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
+| Configure default view                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
+| Create a Jenkins user                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                                               |
+| logged-in users can do anything          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/logged-in-users.groovy][logged-in-users.groovy]]                                                   |
+| [[https://wiki.jenkins.io/display/JENKINS/LDAP+Plugin][Enable ldap in Jenkins]]                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/enable-ldap.groovy][enable-ldap.groovy]]                                                       |
+| Configure authorization in Jenkins       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/matrix-authorization-strategy.groovy][matrix-authorization-strategy.groovy]]                                     |
+| [[https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs][Add default jobs]]                         | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/=                   |
+| [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =-Djenkins.install.runSetupWizard=false=                                 |
+| [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]                  | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
+| Configure jenkins slave Node             |                                                                          |
 ** Jenkins Pipeline
 | Name                                      | Comment                                                          |
 |-------------------------------------------+------------------------------------------------------------------|
@@ -40,18 +49,10 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                       |
 | Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                  |
 | Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                    |
-** Config Jenkins Via Groovy
-| Name                                     | Comment                                                                  |
-|------------------------------------------+--------------------------------------------------------------------------|
-| Set timezone for jenkins                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                                          |
-| Create jenkins views and add jobs to it  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
-| Configure default view                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
-| Create a Jenkins user                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                                               |
-| logged-in users can do anything          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/logged-in-users.groovy][logged-in-users.groovy]]                                                   |
-| [[https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs][Add default jobs]]                         | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/=                   |
-| [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =-Djenkins.install.runSetupWizard=false=                                 |
-| [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]                  | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
-| Configure jenkins slave Node             |                                                                          |
+** Jenkins Basic
+| Name                      | Comment                                   |
+|---------------------------+-------------------------------------------|
+| Deploy Jenkins via docker | https://hub.docker.com/r/jenkins/jenkins/ |
 ** Groovy Basic
 | Name                            | Comment                                                                |
 |---------------------------------+------------------------------------------------------------------------|
@@ -108,6 +109,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 |-----------------------------+-------------------------|
 | Backup jenkins              | [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]       |
 | Load the ssh key            | [[https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin][Credentials Plugin]]      |
+| Monitor URLs                | [[https://wiki.jenkins.io/display/JENKINS/SiteMonitor+Plugin][SiteMonitor Plugin]]      |
 | Add timestamp to job output | [[https://wiki.jenkins-ci.org/display/JENKINS/Timestamper][Timestamper Plugin]]      |
 | Create dashboard            | [[https://wiki.jenkins-ci.org/display/JENKINS/Dashboard+View][Dashboard View Plugin]]   |
 | Abort if job takes too long | [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]    |
@@ -129,8 +131,8 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+END_HTML
 * org-mode configuration                                           :noexport:
 #+STARTUP: overview customtime noalign logdone showall
-#+DESCRIPTION: 
-#+KEYWORDS: 
+#+DESCRIPTION:
+#+KEYWORDS:
 #+LATEX_HEADER: \usepackage[margin=0.6in]{geometry}
 #+LaTeX_CLASS_OPTIONS: [8pt]
 #+LATEX_HEADER: \usepackage[english]{babel}
@@ -150,12 +152,18 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+EXPORT_EXCLUDE_TAGS: exclude noexport
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
-#+LINK_UP:   
-#+LINK_HOME: 
+#+LINK_UP:
+#+LINK_HOME:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * DONE jenkins fails to send slack notification: check slack plugin version: slack:2.2 :noexport:
   CLOSED: [2019-03-06 Wed 16:59]
 https://github.com/jenkinsci/slack-plugin/issues/323
+* DONE Better Jenkins UI: ocean-blue
+  CLOSED: [2019-03-14 Thu 16:11]
+https://jenkins.io/doc/book/blueocean/getting-started/#as-part-of-jenkins-in-docker
+* DONE Dynamically create jenkins users                            :noexport:
+  CLOSED: [2019-03-27 Wed 11:04]
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO groovy challenges                                           :noexport:
 ** 101
 Use groovy to add a test user in Jenkins
@@ -163,7 +171,6 @@ For better security, use groovy to only allow registered user login
 Quiz:
 
 Once I have enabled Jenkins security, how my chef update will work?
-
 ** 102
 Define a Jenkins pipeline job automatically
 Define a Jenkins job via Jenkinsfile script automatically
@@ -174,7 +181,6 @@ Define a Jenkins parameterized pipeline job using Jenkinsfile. It shall trigger 
 Quiz:
 
 Once I have enabled Jenkins security, how my chef update will work?
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] Blog: Jenkins pipeline: run multiple related jobs in a managed order :noexport:IMPORTANT:
 ** basic use
 Jenkins Pipeline is a suite of plugins which supports implementing and
@@ -964,6 +970,17 @@ https://stackoverflow.com/questions/36088227/how-to-run-a-docker-command-in-jenk
 https://stackoverflow.com/questions/42859443/execute-docker-commands-in-jenkins-in-docker-container
 ** TODO Use AWS S3 for my critical backup: Jenkins configurations
 * TODO try Jenkins X                                               :noexport:
+* TODO jenkins enable github authentication                        :noexport:
+https://jenkins.io/solutions/github/
+* TODO [#A] Don't add slack token as a plain text                  :noexport:
+* useful link                                                      :noexport:
+http://tdongsi.github.io/blog/2017/12/30/groovy-hook-script-and-jenkins-configuration-as-code/
+http://tdongsi.github.io/blog/2017/07/18/basic-jenkinsfile-cookbook/
+http://tdongsi.github.io/blog/2017/06/16/troubleshooting-groovy-scripts-in-jenkinsfile/
+http://tdongsi.github.io/blog/2017/04/18/groovy-code-in-jenkins-pipeline/
+* TODO [#A] Jenkins: send slack notification for job failures      :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO Jenkins add a demo user                                     :noexport:
-* HALF jenkins groovy logged-in users can do anything              :noexport:
+* TODO Provision agent using Jenkins swarm plugin                  :noexport:
+* TODO Automate agent provisioning and make them ephemeral         :noexport:
+* TODO Jenkins pipeline: docker image as agent                     :noexport:
+* TODO docker image as agent with persistent storage               :noexport:
