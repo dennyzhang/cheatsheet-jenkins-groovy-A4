@@ -21,6 +21,11 @@
 - Related posts: [[https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-A4][Jenkins CheatSheet]], [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
 File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
+** Jenkins Basic
+| Name                      | Comment                                   |
+|---------------------------+-------------------------------------------|
+| Deploy Jenkins via docker | https://hub.docker.com/r/jenkins/jenkins/ |
+
 ** Jenkins Pipeline
 | Name                                      | Comment                                                          |
 |-------------------------------------------+------------------------------------------------------------------|
@@ -41,6 +46,8 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Set timezone for jenkins                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                                          |
 | Create jenkins views and add jobs to it  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
 | Configure default view                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                     |
+| Create a Jenkins user                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                                               |
+| logged-in users can do anything          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/logged-in-users.groovy][logged-in-users.groovy]]                                                   |
 | [[https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs][Add default jobs]]                         | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/=                   |
 | [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =-Djenkins.install.runSetupWizard=false=                                 |
 | [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]                  | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
@@ -145,6 +152,29 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:   
 #+LINK_HOME: 
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* DONE jenkins fails to send slack notification: check slack plugin version: slack:2.2 :noexport:
+  CLOSED: [2019-03-06 Wed 16:59]
+https://github.com/jenkinsci/slack-plugin/issues/323
+* TODO groovy challenges                                           :noexport:
+** 101
+Use groovy to add a test user in Jenkins
+For better security, use groovy to only allow registered user login
+Quiz:
+
+Once I have enabled Jenkins security, how my chef update will work?
+
+** 102
+Define a Jenkins pipeline job automatically
+Define a Jenkins job via Jenkinsfile script automatically
+For automated backup, enable and configure ThinBackup plugin via Groovy
+** 301
+Define a dummy Jenkins pipeline job using Jenkinsfile
+Define a Jenkins parameterized pipeline job using Jenkinsfile. It shall trigger another job.
+Quiz:
+
+Once I have enabled Jenkins security, how my chef update will work?
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] Blog: Jenkins pipeline: run multiple related jobs in a managed order :noexport:IMPORTANT:
 ** basic use
 Jenkins Pipeline is a suite of plugins which supports implementing and
@@ -933,24 +963,7 @@ https://github.com/jenkinsci/docker-workflow-plugin/tree/master/demo
 https://stackoverflow.com/questions/36088227/how-to-run-a-docker-command-in-jenkins-build-execute-shell
 https://stackoverflow.com/questions/42859443/execute-docker-commands-in-jenkins-in-docker-container
 ** TODO Use AWS S3 for my critical backup: Jenkins configurations
+* TODO try Jenkins X                                               :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO groovy challenges                                           :noexport:
-** 101
-Use groovy to add a test user in Jenkins
-For better security, use groovy to only allow registered user login
-Quiz:
-
-Once I have enabled Jenkins security, how my chef update will work?
-
-** 102
-Define a Jenkins pipeline job automatically
-Define a Jenkins job via Jenkinsfile script automatically
-For automated backup, enable and configure ThinBackup plugin via Groovy
-** 301
-Define a dummy Jenkins pipeline job using Jenkinsfile
-Define a Jenkins parameterized pipeline job using Jenkinsfile. It shall trigger another job.
-Quiz:
-
-Once I have enabled Jenkins security, how my chef update will work?
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO jenkins run docker container
+* TODO Jenkins add a demo user                                     :noexport:
+* HALF jenkins groovy logged-in users can do anything              :noexport:
