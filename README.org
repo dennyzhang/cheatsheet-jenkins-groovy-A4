@@ -31,7 +31,9 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | logged-in users can do anything          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/logged-in-users.groovy][logged-in-users.groovy]]                                                   |
 | [[https://wiki.jenkins.io/display/JENKINS/LDAP+Plugin][Enable ldap in Jenkins]]                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/enable-ldap.groovy][enable-ldap.groovy]]                                                       |
 | Configure authorization in Jenkins       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/matrix-authorization-strategy.groovy][matrix-authorization-strategy.groovy]]                                     |
+| Add a list of jobs by regexp to a view   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/addjobstoview-byregexp.groovy][addjobstoview-byregexp.groovy]]                                            |
 | [[https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs][Add default jobs]]                         | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/=                   |
+| List all jenkins jobs                    | =println Jenkins.instance.projects.collect { it.name }=                  |
 | [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =-Djenkins.install.runSetupWizard=false=                                 |
 | [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]                  | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
 | Configure jenkins slave Node             |                                                                          |
@@ -985,3 +987,13 @@ http://tdongsi.github.io/blog/2017/04/18/groovy-code-in-jenkins-pipeline/
 * TODO Automate agent provisioning and make them ephemeral         :noexport:
 * TODO Jenkins pipeline: docker image as agent                     :noexport:
 * TODO docker image as agent with persistent storage               :noexport:
+* TODO Jenkins script approval                                     :noexport:
+https://gist.github.com/dnozay/e7afcf7a7dd8f73a4e05
+
+#+BEGIN_EXAMPLE
+// instance containing the approvals
+// list of approved hashes: println instance.approvedScriptHashes
+ 
+ScriptApproval instance = Jenkins.getInstance().getExtensionList(RootAction.class).get(ScriptApproval.class);
+approvedScriptHashes = instance.approvedScriptHashes
+#+END_EXAMPLE
