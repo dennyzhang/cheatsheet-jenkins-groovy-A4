@@ -35,14 +35,19 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Add a list of jobs by regexp to a view   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/addjobstoview-byregexp.groovy][addjobstoview-byregexp.groovy]]                                            |
 | Create a folder/directory if missing     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-thinbackup-folder.groovy][create-thinbackup-folder.groovy]]                                          |
 | List all jenkins jobs                    | =println Jenkins.instance.projects.collect { it.name }=                  |
-| [[https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs][Add default jobs]]                         | Copy jobs config.xml to =/usr/share/jenkins/ref/jobs/=                   |
-| Copy custom built plugins                | =COPY plugins/*.hpi /usr/share/jenkins/ref/plugins/=                     |
-| Use jenkins cli                          | =COPY config/jenkins.properties /usr/share/jenkins/ref/=                 |
-| Add jenkins groovy scripts               | =COPY config/*.groovy /usr/share/jenkins/ref/init.groovy.d/=             |
-| Configure Jenkins with some defaults     | =COPY config/*.xml /usr/share/jenkins/ref/=                              |
 | [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =-Djenkins.install.runSetupWizard=false=                                 |
-| [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]                  | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
 | Configure jenkins slave Node             |                                                                          |
+
+** Load Jenkins settings via folder copy
+| Name                                 | Comment                                                                  |
+|--------------------------------------+--------------------------------------------------------------------------|
+| [[https://stackoverflow.com/questions/43691539/create-jenkins-docker-image-with-pre-configured-jobs][Add default jobs]]                     | =Copy jobs/ /usr/share/jenkins/ref/jobs/=                                |
+| Copy custom built plugins            | =COPY plugins/*.hpi /usr/share/jenkins/ref/plugins/=                     |
+| Use jenkins cli                      | =COPY config/jenkins.properties /usr/share/jenkins/ref/=                 |
+| Add jenkins groovy scripts           | =COPY config/*.groovy /usr/share/jenkins/ref/init.groovy.d/=             |
+| Configure Jenkins with some defaults | =COPY config/*.xml /usr/share/jenkins/ref/=                              |
+| [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]              | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
+
 ** Jenkins Pipeline
 | Name                                      | Comment                                                          |
 |-------------------------------------------+------------------------------------------------------------------|
