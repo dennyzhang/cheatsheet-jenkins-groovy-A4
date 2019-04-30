@@ -1,3 +1,4 @@
+#!groovy
 //-------------------------------------------------------------------
 // @copyright 2018 DennyZhang.com
 // Licensed under MIT
@@ -8,7 +9,7 @@
 // Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2019-02-16 22:04:19>
+// Updated: Time-stamp: <2019-04-29 15:43:13>
 //-------------------------------------------------------------------
 String ip_hostname_list = """ 138.197.192.172  myenv-do-jenkins
    138.68.254.56  myenv-do-lb-1
