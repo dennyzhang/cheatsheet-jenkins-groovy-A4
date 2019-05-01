@@ -99,7 +99,6 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Name                            | Comment                                                                |
 |---------------------------------+------------------------------------------------------------------------|
 | Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |
-| Read file content as a variable | =def env = System.getenv()=, =def content = readFile("/tmp/test.txt")= |
 | Print stdout                    | echo 'Action is done', println "Hello World"                           |
 | Use boolean parameter           | if (istrue == "false") {...}                                           |
 | Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
@@ -113,6 +112,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]] |
 | Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]      |
 | [[http://groovy-lang.org/json.html][Convert string to json]]         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]]    |
+| Regex match                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/regexp-match.groovy][regexp-match.groovy]]      |
 ** Groovy Array
 | Name                        | Comment                                  |
 |-----------------------------+------------------------------------------|
@@ -121,6 +121,12 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Add item to list            | =def alist = [10, 9, 8]; alist << 7=     |
 | List size                   | =def alist = [10, 9, 8]; alist.size()=   |
 | Split string with delimiter | ='1128-2'.tokenize( '-' )=               |
+** Groovy File
+| Name                            | Comment                                                                |
+|---------------------------------+------------------------------------------------------------------------|
+| Read file content as a variable | =def env = System.getenv()=, =def content = readFile("/tmp/test.txt")= |
+| Read and write json files       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/json-file.groovy][json-file.groovy]]                                                       |
+
 ** Groovy Dictionary
 | Name                | Comment                                        |
 |---------------------+------------------------------------------------|
@@ -200,15 +206,6 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+SEQ_TODO: TODO HALF ASSIGN | DONE BYPASS DELEGATE CANCELED DEFERRED
 #+LINK_UP:
 #+LINK_HOME:
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* DONE jenkins fails to send slack notification: check slack plugin version: slack:2.2 :noexport:
-  CLOSED: [2019-03-06 Wed 16:59]
-https://github.com/jenkinsci/slack-plugin/issues/323
-* DONE Better Jenkins UI: ocean-blue
-  CLOSED: [2019-03-14 Thu 16:11]
-https://jenkins.io/doc/book/blueocean/getting-started/#as-part-of-jenkins-in-docker
-* DONE Dynamically create jenkins users                            :noexport:
-  CLOSED: [2019-03-27 Wed 11:04]
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO groovy challenges                                           :noexport:
 ** 101
@@ -1015,16 +1012,14 @@ https://github.com/jenkinsci/docker-workflow-plugin/tree/master/demo
 https://stackoverflow.com/questions/36088227/how-to-run-a-docker-command-in-jenkins-build-execute-shell
 https://stackoverflow.com/questions/42859443/execute-docker-commands-in-jenkins-in-docker-container
 ** TODO Use AWS S3 for my critical backup: Jenkins configurations
-* TODO try Jenkins X                                               :noexport:
+* TODO [#A] try Jenkins X                                          :noexport:
 * TODO jenkins enable github authentication                        :noexport:
 https://jenkins.io/solutions/github/
-* TODO [#A] Don't add slack token as a plain text                  :noexport:
 * useful link                                                      :noexport:
 http://tdongsi.github.io/blog/2017/12/30/groovy-hook-script-and-jenkins-configuration-as-code/
 http://tdongsi.github.io/blog/2017/07/18/basic-jenkinsfile-cookbook/
 http://tdongsi.github.io/blog/2017/06/16/troubleshooting-groovy-scripts-in-jenkinsfile/
 http://tdongsi.github.io/blog/2017/04/18/groovy-code-in-jenkins-pipeline/
-* TODO [#A] Jenkins: send slack notification for job failures      :noexport:
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO Provision agent using Jenkins swarm plugin                  :noexport:
 * TODO Automate agent provisioning and make them ephemeral         :noexport:
@@ -1032,6 +1027,7 @@ http://tdongsi.github.io/blog/2017/04/18/groovy-code-in-jenkins-pipeline/
 * TODO docker image as agent with persistent storage               :noexport:
 * HALF Jenkins script approval                                     :noexport:
 https://gist.github.com/dnozay/e7afcf7a7dd8f73a4e05
+https://stackoverflow.com/questions/43476370/exporting-and-importing-jenkins-pipeline-script-approvals/43477258
 
 #+BEGIN_EXAMPLE
 // instance containing the approvals
@@ -1040,13 +1036,12 @@ https://gist.github.com/dnozay/e7afcf7a7dd8f73a4e05
 ScriptApproval instance = Jenkins.getInstance().getExtensionList(RootAction.class).get(ScriptApproval.class);
 approvedScriptHashes = instance.approvedScriptHashes
 #+END_EXAMPLE
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO [#A] jenkins groovy add job to view regrexp                 :noexport:
 * TODO groovy: Use a regular expression to include jobs into the view :noexport:
-* TODO Jenkins script approvals                                    :noexport:
-https://stackoverflow.com/questions/43476370/exporting-and-importing-jenkins-pipeline-script-approvals/43477258
 * #  --8<-------------------------- separator ------------------------>8-- :noexport:
-* TODO [#A] jenkins kubo_ssh_passwd: jenkins secret text           :noexport:
+* DONE [#A] Jenkins: send slack notification for job failures      :noexport:
+  CLOSED: [2019-05-01 Wed 11:06]
+* DONE [#A] jenkins kubo_ssh_passwd: jenkins secret text           :noexport:
+  CLOSED: [2019-05-01 Wed 11:06]
 https://support.cloudbees.com/hc/en-us/articles/204897020-Fetch-a-userid-and-password-from-a-Credential-object-in-a-Pipeline-job-
 https://stackoverflow.com/questions/48330402/secret-text-git-credentials-not-showing-up-in-jenkins-project-source-code-mana#comment83676647_48336020
 https://github.com/jenkinsci/slack-plugin/issues/270
@@ -1054,9 +1049,7 @@ https://fedidat.com/270-jenkinsfile-scripted-secret-text/
 https://jenkins.io/doc/pipeline/steps/credentials-binding/
 http://steve-jansen.github.io/blog/2014/12/16/parsing-jenkins-secrets-in-a-shell-script/
 https://kb.novaordis.com/index.php/Injecting_Jenkins_Credentials_into_a_Build_Job
-* TODO Jenkins credential scope: Global(jenkins, nodes, items, all child items, etc) and System (Jenkins and nodes only) :noexport:
-* HALF Jenkins pipeline credentials for all stages                 :noexport:
-https://stackoverflow.com/questions/49739933/jenkins-pipeline-credentials-for-all-stages
+
 * DONE jenkins groovy get job                                      :noexport:
   CLOSED: [2019-04-25 Thu 22:13]
 https://medium.com/@garimajdamani/how-to-get-jenkins-build-job-details-b8c918087030
@@ -1065,7 +1058,6 @@ name = "ProvisionPKSEnvRaw"
 def job = Hudson.instance.getJob(name)
 println job.getLastBuild().getLog(50)
 
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * DONE doc: Jenkins pipeline: if ip not found, skip healthcheck    :noexport:
   CLOSED: [2019-04-26 Fri 19:16]
 #+BEGIN_SRC groovy
@@ -1143,4 +1135,21 @@ pipeline {
 * DONE jenkins credentials                                         :noexport:
   CLOSED: [2019-04-29 Mon 14:45]
 https://www.tikalk.com/posts/2017/03/07/how-to-mask-credentials-in-your-jenkins-jobs/
+
+* DONE jenkins fails to send slack notification: check slack plugin version: slack:2.2 :noexport:
+  CLOSED: [2019-03-06 Wed 16:59]
+https://github.com/jenkinsci/slack-plugin/issues/323
+* DONE Better Jenkins UI: ocean-blue
+  CLOSED: [2019-03-14 Thu 16:11]
+https://jenkins.io/doc/book/blueocean/getting-started/#as-part-of-jenkins-in-docker
+* DONE Dynamically create jenkins users                            :noexport:
+  CLOSED: [2019-03-27 Wed 11:04]
+
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO Jenkins credential scope: Global(jenkins, nodes, items, all child items, etc) and System (Jenkins and nodes only) :noexport:
+* HALF Jenkins pipeline credentials for all stages                 :noexport:
+https://stackoverflow.com/questions/49739933/jenkins-pipeline-credentials-for-all-stages
 * TODO Configure jenkins slave Node                                :noexport:
+* TODO Semantic Versioning class for Groovy                        :noexport:
+https://gist.github.com/michaellihs/a6621376393821d6d206ccfc8dbf86ec
+
