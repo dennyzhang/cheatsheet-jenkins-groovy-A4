@@ -105,6 +105,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Name                           | Comment                                                   |
 |--------------------------------+-----------------------------------------------------------|
 | Get environment variables      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                            |
+| Groovy execute command         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/execute-command.groovy][execute-command.groovy]]                                    |
 | Print stdout                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/print.groovy][print.groovy]] echo 'Action is done', println "Hello World" |
 | Use boolean parameter          | if (istrue == "false") {...}                              |
 | Basic integer caculation       | def a = 3, b = 7; println "$a + $b = ${a + b}"            |
@@ -1150,4 +1151,7 @@ https://stackoverflow.com/questions/49739933/jenkins-pipeline-credentials-for-al
 * TODO Configure jenkins slave Node                                :noexport:
 * TODO Semantic Versioning class for Groovy                        :noexport:
 https://gist.github.com/michaellihs/a6621376393821d6d206ccfc8dbf86ec
+
+* Run jenkins pipeline code inside docker image                    :noexport:
+https://gist.github.com/cyrille-leclerc/8cad9d1b35ea553820a1
 
