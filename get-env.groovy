@@ -9,8 +9,18 @@
 // Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2019-04-29 15:43:41>
+// Updated: Time-stamp: <2019-04-30 15:27:12>
 //-------------------------------------------------------------------
+// http://www.mytechtoday.com/2009/01/read-environment-variables-with-groovy.html
+def env = System.getenv()
+// Print all the environment variables.
+
+env.each{
+println it
+} 
+// You can also access the specific variable, say 'username', as show below 
+String user= env['USERNAME']
+
 // https://stackoverflow.com/questions/31707667/how-to-access-jenkins-environment-variables-with-dsl
 
 def envVars = Jenkins.instance.getGlobalNodeProperties()[0].getEnvVars()

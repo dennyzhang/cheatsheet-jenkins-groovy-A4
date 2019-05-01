@@ -31,7 +31,8 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Groovy manages files/folders            | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/files-folder.groovy][files-folder.groovy]]                                     |
 | Configure max executors in Jenkins      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/master-executors.groovy][master-executors.groovy]]                                 |
 | Add a list of jobs by regexp to a view  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/addjobstoview-byregexp.groovy][addjobstoview-byregexp.groovy]]                           |
-| Config kubernetes jenkins               | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                         |
+| Config jenkins kubernetes plugin        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                         |
+| Configure slack plugin                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-slack.groovy][config-slack.groovy]]                                     |
 | List all jenkins jobs                   | =println Jenkins.instance.projects.collect { it.name }= |
 | Reference                               | [[https://github.com/cloudbees/jenkins-scripts][GitHub: cloudbees/jenkins-scripts]]                       |
 | Reference                               | [[https://github.com/jenkinsci/pipeline-examples][GitHub: jenkinsci/pipeline-examples]]                     |
@@ -76,18 +77,24 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Name                      | Comment                                                 |
 |---------------------------+---------------------------------------------------------|
 | Deploy Jenkins via docker | https://hub.docker.com/r/jenkins/jenkins/               |
-| Clean Up Old Builds       | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
+| Clean up old builds       | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
 #+BEGIN_HTML
 <a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 #+END_HTML
+** Jenkins with Kubernetes/Docker
+| Name                                               | Comment                                                                 |
+|----------------------------------------------------+-------------------------------------------------------------------------|
+| [[https://github.com/jenkinsci/kubernetes-plugin][Kubernetes Plugin]]                                  | Jenkins plugin to run dynamic agents in a Kubernetes/Docker environment |
+| Config jenkins kubernetes plugin                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                                         |
+| Cleanup for Docker stale containers/images/volumes | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/docker-cleanup.groovy][docker-cleanup.groovy]]                                                   |
 ** Groovy Basic
 | Name                            | Comment                                                                |
 |---------------------------------+------------------------------------------------------------------------|
+| Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |
 | Read file content as a variable | =def env = System.getenv()=, =def content = readFile("/tmp/test.txt")= |
 | Print stdout                    | echo 'Action is done', println "Hello World"                           |
 | Use boolean parameter           | if (istrue == "false") {...}                                           |
 | Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
-| Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |
 | Run groovy online               | [[https://groovyconsole.appspot.com][SaaS: Groovy Web console]]                                               |
 | Run groovy script from Jenkins  | [[https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console][Link: Jenkins Script Console]]                                           |
 | Reference                       | [[http://groovy-lang.org/documentation.htm][Link: Apache Groovy]]                                                    |
@@ -121,6 +128,12 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 #+BEGIN_HTML
 <a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 #+END_HTML
+** Groovy Date
+| Name           | Comment                                                                      |
+|----------------+------------------------------------------------------------------------------|
+| Date to string | =new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))= |
+| String to date | =Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'", "2001-01-01T00:00:00Z")=             |
+| String to date | =Date.parse("yyyy-MM-dd'T'HH:mm:ssZ", "2001-01-01T00:00:00+0000")=           |
 ** Jenkins Groovy
 | Name                           | Command                          |
 |--------------------------------+----------------------------------|
