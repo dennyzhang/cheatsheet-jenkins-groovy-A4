@@ -151,18 +151,19 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 ** Jenkins Groovy
 | Name                           | Command                          |
 |--------------------------------+----------------------------------|
-| Print message to stdout        | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/print.groovy][print.groovy]]                 |
-| Get environment variables      | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]               |
-| Convert string to list         | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]          |
-| Create string with multi-lines | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]]     |
-| Loop a map                     | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]              |
-| Get hostname by ip             | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]    |
+| Print message to stdout        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/print.groovy][print.groovy]]                     |
+| Get environment variables      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                   |
+| Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]              |
+| Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]]         |
+| Loop a map                     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]                  |
+| Get hostname by ip             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]        |
 | Convert list to string         | =l.join(";")=, [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][link: groovy list]] |
 ** Jenkins Maintenance
-| Name                      | Comment                                                 |
-|---------------------------+---------------------------------------------------------|
-| Deploy Jenkins via docker | https://hub.docker.com/r/jenkins/jenkins/               |
-| Clean up old builds       | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
+| Name                         | Comment                                                 |
+|------------------------------+---------------------------------------------------------|
+| Delete jenkins job by regexp | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/delete-job-by-regexp.groovy][delete-job-by-regexp.groovy]]                             |
+| Deploy Jenkins via docker    | https://hub.docker.com/r/jenkins/jenkins/               |
+| Clean up old builds          | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
 ** More Resources
 http://groovy-lang.org/documentation.html#gettingstarted
 
@@ -1139,7 +1140,7 @@ https://www.tikalk.com/posts/2017/03/07/how-to-mask-credentials-in-your-jenkins-
 * DONE jenkins fails to send slack notification: check slack plugin version: slack:2.2 :noexport:
   CLOSED: [2019-03-06 Wed 16:59]
 https://github.com/jenkinsci/slack-plugin/issues/323
-* DONE Better Jenkins UI: ocean-blue
+* DONE Better Jenkins UI: ocean-blue                               :noexport:
   CLOSED: [2019-03-14 Thu 16:11]
 https://jenkins.io/doc/book/blueocean/getting-started/#as-part-of-jenkins-in-docker
 * DONE Dynamically create jenkins users                            :noexport:
