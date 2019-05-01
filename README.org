@@ -1160,3 +1160,4 @@ https://gist.github.com/michaellihs/a6621376393821d6d206ccfc8dbf86ec
 https://gist.github.com/cyrille-leclerc/8cad9d1b35ea553820a1
 * TODO [#A] jenkins wrap class                                     :noexport:
 https://gist.github.com/cyrille-leclerc/552e3103139557e0196a
+https://gist.github.com/HarshadRanganathan/97feed7f91b7ae542c994393447f3db4
