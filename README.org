@@ -25,18 +25,23 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Name                                    | Comment                                                 |
 |-----------------------------------------+---------------------------------------------------------|
 | Set timezone for jenkins                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                         |
-| Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
 | Configure default view                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
 | Configure Jenkins url                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-url.groovy][jenkins-url.groovy]]                                      |
 | Create a Jenkins user                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                              |
 | Groovy manages files/folders            | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/files-folder.groovy][files-folder.groovy]]                                     |
 | Configure max executors in Jenkins      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/master-executors.groovy][master-executors.groovy]]                                 |
-| Add a list of jobs by regexp to a view  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/addjobstoview-byregexp.groovy][addjobstoview-byregexp.groovy]]                           |
 | Config jenkins kubernetes plugin        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                         |
 | Configure slack plugin                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-slack.groovy][config-slack.groovy]]                                     |
-| List all jenkins jobs                   | =println Jenkins.instance.projects.collect { it.name }= |
 | Reference                               | [[https://github.com/cloudbees/jenkins-scripts][GitHub: cloudbees/jenkins-scripts]]                       |
 | Reference                               | [[https://github.com/jenkinsci/pipeline-examples][GitHub: jenkinsci/pipeline-examples]]                     |
+** Jenkins Job Via Groovy
+| Name                                    | Comment                                                 |
+|-----------------------------------------+---------------------------------------------------------|
+| List all jenkins jobs                   | =println Jenkins.instance.projects.collect { it.name }= |
+| Add a list of jobs by regexp to a view  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/addjobstoview-byregexp.groovy][addjobstoview-byregexp.groovy]]                           |
+| Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
+| Create and trigger a job                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-job.groovy][create-jenkins-job.groovy]]                               |
+| Manage jenkins jobs                     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/manage-jenkins-jobs.groovy][manage-jenkins-jobs.groovy]]                              |
 ** Jenkins Security Via Groovy
 | Name                                     | Comment                                  |
 |------------------------------------------+------------------------------------------|
@@ -45,6 +50,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Create a jenkins secret text             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-secret-text.groovy][create-secret-text.groovy]]                |
 | Configure authorization in Jenkins       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/matrix-authorization-strategy.groovy][matrix-authorization-strategy.groovy]]     |
 | [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =-Djenkins.install.runSetupWizard=false= |
+
 ** Load Jenkins settings via folder copy
 | Name                                 | Comment                                                                  |
 |--------------------------------------+--------------------------------------------------------------------------|
@@ -72,7 +78,6 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 |----------------+---------------------------------------------------|
 | Get hostname   | =println InetAddress.localHost.canonicalHostName= |
 | Get IP address | =println InetAddress.localHost.hostAddress=       |
-
 ** Jenkins Pipeline
 | Name                                      | Comment                                                          |
 |-------------------------------------------+------------------------------------------------------------------|
@@ -127,7 +132,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 |---------------------------------+------------------------------------------------------------------------|
 | Read file content as a variable | =def env = System.getenv()=, =def content = readFile("/tmp/test.txt")= |
 | Read and write json files       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/json-file.groovy][json-file.groovy]]                                                       |
-
+| Obtain a relative path          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/json-file.groovy][relative-path.groovy]]                                                   |
 ** Groovy Dictionary
 | Name                | Comment                                        |
 |---------------------+------------------------------------------------|
