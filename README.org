@@ -27,6 +27,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Set timezone for jenkins                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                         |
 | Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
 | Configure default view                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
+| Configure Jenkins url                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-url.groovy][jenkins-url.groovy]]                                      |
 | Create a Jenkins user                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                              |
 | Groovy manages files/folders            | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/files-folder.groovy][files-folder.groovy]]                                     |
 | Configure max executors in Jenkins      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/master-executors.groovy][master-executors.groovy]]                                 |
@@ -96,15 +97,15 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Config jenkins kubernetes plugin                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                                         |
 | Cleanup for Docker stale containers/images/volumes | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/docker-cleanup.groovy][docker-cleanup.groovy]]                                                   |
 ** Groovy Basic
-| Name                            | Comment                                                                |
-|---------------------------------+------------------------------------------------------------------------|
-| Get environment variables       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                                         |
-| Print stdout                    | echo 'Action is done', println "Hello World"                           |
-| Use boolean parameter           | if (istrue == "false") {...}                                           |
-| Basic integer caculation        | def a = 3, b = 7; println "$a + $b = ${a + b}"                         |
-| Run groovy online               | [[https://groovyconsole.appspot.com][SaaS: Groovy Web console]]                                               |
-| Run groovy script from Jenkins  | [[https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console][Link: Jenkins Script Console]]                                           |
-| Reference                       | [[http://groovy-lang.org/documentation.htm][Link: Apache Groovy]]                                                    |
+| Name                           | Comment                                                   |
+|--------------------------------+-----------------------------------------------------------|
+| Get environment variables      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                            |
+| Print stdout                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/print.groovy][print.groovy]] echo 'Action is done', println "Hello World" |
+| Use boolean parameter          | if (istrue == "false") {...}                              |
+| Basic integer caculation       | def a = 3, b = 7; println "$a + $b = ${a + b}"            |
+| Run groovy online              | [[https://groovyconsole.appspot.com][SaaS: Groovy Web console]]                                  |
+| Run groovy script from Jenkins | [[https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console][Link: Jenkins Script Console]]                              |
+| Reference                      | [[http://groovy-lang.org/documentation.htm][Link: Apache Groovy]]                                       |
 ** Groovy String
 | Name                           | Comment                  |
 |--------------------------------+--------------------------|
@@ -148,22 +149,13 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Date to string | =new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))= |
 | String to date | =Date.parse("yyyy-MM-dd'T'HH:mm:ss'Z'", "2001-01-01T00:00:00Z")=             |
 | String to date | =Date.parse("yyyy-MM-dd'T'HH:mm:ssZ", "2001-01-01T00:00:00+0000")=           |
-** Jenkins Groovy
-| Name                           | Command                          |
-|--------------------------------+----------------------------------|
-| Print message to stdout        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/print.groovy][print.groovy]]                     |
-| Get environment variables      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                   |
-| Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]              |
-| Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]]         |
-| Loop a map                     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]                  |
-| Get hostname by ip             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]        |
-| Convert list to string         | =l.join(";")=, [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][link: groovy list]] |
 ** Jenkins Maintenance
-| Name                         | Comment                                                 |
-|------------------------------+---------------------------------------------------------|
-| Delete jenkins job by regexp | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/delete-job-by-regexp.groovy][delete-job-by-regexp.groovy]]                             |
-| Deploy Jenkins via docker    | https://hub.docker.com/r/jenkins/jenkins/               |
-| Clean up old builds          | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
+| Name                            | Comment                                                 |
+|---------------------------------+---------------------------------------------------------|
+| Delete jenkins job by regexp    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/delete-job-by-regexp.groovy][delete-job-by-regexp.groovy]]                             |
+| Deploy Jenkins via docker       | https://hub.docker.com/r/jenkins/jenkins/               |
+| Clean up old builds             | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
+| Check jenkins slave jar version | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/check-slave-jar-version.groovy][check-slave-jar-version.groovy]]                          |
 ** More Resources
 http://groovy-lang.org/documentation.html#gettingstarted
 
