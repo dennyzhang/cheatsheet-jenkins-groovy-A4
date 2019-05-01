@@ -4,12 +4,12 @@
 // Licensed under MIT
 // https://www.dennyzhang.com/wp-content/mit_license.txt
 //
-// File: string-to-json.groovy
+// File: check-slave-jar-version.groovy
 // Author : Denny <https://www.dennyzhang.com/contact>
 // Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2019-05-01 11:29:26>
+// Updated: Time-stamp: <2019-05-01 16:51:48>
 //-------------------------------------------------------------------
 // https://gist.github.com/ctran/8f82adedaa23ea924c52
 import jenkins.model.*

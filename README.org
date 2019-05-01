@@ -42,6 +42,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
 | Create and trigger a job                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-job.groovy][create-jenkins-job.groovy]]                               |
 | Manage jenkins jobs                     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/manage-jenkins-jobs.groovy][manage-jenkins-jobs.groovy]]                              |
+| Cancel queued jenkins jobs by regexp    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/kill_queued_jenkins.groovy][kill_queued_jenkins.groovy]]                              |
 ** Jenkins Security Via Groovy
 | Name                                     | Comment                                  |
 |------------------------------------------+------------------------------------------|
@@ -73,6 +74,13 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]       | Backup jenkins                                                          |
 | [[https://plugins.jenkins.io/jobConfigHistory][JobConfigHistory Plugin]] | Backup job configuration                                                |
 | [[https://wiki.jenkins.io/display/JENKINS/Build+User+Vars+Plugin][Build User Vars Plugin]]  | Describe the user who started the build                                 |
+** Jenkins Git Via Groovy
+| Name                                   | Comment                           |
+|----------------------------------------+-----------------------------------|
+| Git checkout code                      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/git-checkout.groovy][git-checkout.groovy]]               |
+| Get all git commits since last success | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/git-commits-before-fail.groovy][git-commits-before-fail.groovy]]    |
+| List git tags and branches             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/git-list-tags-and-branches.groovy][git-list-tags-and-branches.groovy]] |
+
 ** Jenkins networking Via Groovy
 | Name           | Comment                                           |
 |----------------+---------------------------------------------------|
@@ -141,6 +149,12 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Add an item to map  | =m.put('denny','hello')=                       |
 | Check if key exists | =m.containsKey('key1')=                        |
 | Loop a map          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]                                |
+** Groovy json
+| Name                       | Comment               |
+|----------------------------+-----------------------|
+| [[http://groovy-lang.org/json.html][Convert string to json]]     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]] |
+| Convert dictionary to json | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/dict-to-json.groovy][dict-to-json.groovy]]   |
+| Read and write json files  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/json-file.groovy][json-file.groovy]]      |
 ** Groovy Network
 | Name                            | Comment                                                                  |
 |---------------------------------+--------------------------------------------------------------------------|
@@ -172,6 +186,8 @@ http://groovy-lang.org/documentation.html#gettingstarted
 https://github.com/jenkinsci/pipeline-model-definition-plugin/wiki/Syntax-Reference
 
 https://github.com/fabric8io/jenkins-docker
+
+https://gist.github.com/vdupain/832964527b4b8d7d4c648169dae8c656
 
 https://jenkins.io/doc/
 
@@ -1155,9 +1171,16 @@ https://stackoverflow.com/questions/49739933/jenkins-pipeline-credentials-for-al
 * TODO Configure jenkins slave Node                                :noexport:
 * TODO Semantic Versioning class for Groovy                        :noexport:
 https://gist.github.com/michaellihs/a6621376393821d6d206ccfc8dbf86ec
-
-* Run jenkins pipeline code inside docker image                    :noexport:
+* #  --8<-------------------------- separator ------------------------>8-- :noexport:
+* TODO [#A] Run jenkins pipeline code inside docker image          :noexport:
+https://akomljen.com/set-up-a-jenkins-ci-cd-pipeline-with-kubernetes/
 https://gist.github.com/cyrille-leclerc/8cad9d1b35ea553820a1
 * TODO [#A] jenkins wrap class                                     :noexport:
 https://gist.github.com/cyrille-leclerc/552e3103139557e0196a
 https://gist.github.com/HarshadRanganathan/97feed7f91b7ae542c994393447f3db4
+* TODO Load groovy script as import, instead of                    :noexport:
+pipelineUtils = load "${JENKINS_HOME}/init.groovy.d/pipeline-utils.groovy"
+
+                    script {
+                        pipelineUtils.sendSlackNotification(slack_target, jobLogs, downstreamJobResult)
+                    }

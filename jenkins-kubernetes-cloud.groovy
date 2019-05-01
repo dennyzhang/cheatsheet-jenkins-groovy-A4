@@ -4,12 +4,12 @@
 // Licensed under MIT
 // https://www.dennyzhang.com/wp-content/mit_license.txt
 //
-// File: string-to-json.groovy
+// File: jenkins-kubernetes-cloud.groovy
 // Author : Denny <https://www.dennyzhang.com/contact>
 // Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2019-04-29 15:46:49>
+// Updated: Time-stamp: <2019-05-01 16:52:44>
 //-------------------------------------------------------------------
 // https://stackoverflow.com/questions/38273070/groovy-script-to-apply-kubernetes-cloud-config-in-jenkins
 import org.csanchez.jenkins.plugins.kubernetes.*
