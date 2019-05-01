@@ -53,6 +53,19 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Add jenkins groovy scripts           | =COPY config/*.groovy /usr/share/jenkins/ref/init.groovy.d/=             |
 | Configure Jenkins with some defaults | =COPY config/*.xml /usr/share/jenkins/ref/=                              |
 | [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]              | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
+** Jenkins Plugins
+| Plugin                  | Summary                                                                 |
+|-------------------------+-------------------------------------------------------------------------|
+| [[https://github.com/jenkinsci/kubernetes-plugin][Kubernetes Plugin]]       | Jenkins plugin to run dynamic agents in a Kubernetes/Docker environment |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin][Credentials Plugin]]      | Load the ssh key                                                        |
+| [[https://wiki.jenkins.io/display/JENKINS/SiteMonitor+Plugin][SiteMonitor Plugin]]      | Monitor URLs                                                            |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Timestamper][Timestamper Plugin]]      | Add timestamp to job output                                             |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Dashboard+View][Dashboard View Plugin]]   | Create dashboard                                                        |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]    | Abort if job takes too long                                             |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Naginator+Plugin][Naginator Plugin]]        | Retry failed a job                                                      |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]       | Backup jenkins                                                          |
+| [[https://plugins.jenkins.io/jobConfigHistory][JobConfigHistory Plugin]] | Backup job configuration                                                |
+| [[https://wiki.jenkins.io/display/JENKINS/Build+User+Vars+Plugin][Build User Vars Plugin]]  | Describe the user who started the build                                 |
 ** Jenkins networking Via Groovy
 | Name           | Comment                                           |
 |----------------+---------------------------------------------------|
@@ -73,11 +86,6 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                       |
 | Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                  |
 | Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                    |
-** Jenkins Maintenance
-| Name                      | Comment                                                 |
-|---------------------------+---------------------------------------------------------|
-| Deploy Jenkins via docker | https://hub.docker.com/r/jenkins/jenkins/               |
-| Clean up old builds       | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
 #+BEGIN_HTML
 <a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 #+END_HTML
@@ -144,19 +152,11 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Loop a map                     | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/loop-map.groovy][loop-map.groovy]]              |
 | Get hostname by ip             | See [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]    |
 | Convert list to string         | =l.join(";")=, [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][link: groovy list]] |
-** Jenkins Plugins
-| Plugin                  | Summary                                                                 |
-|-------------------------+-------------------------------------------------------------------------|
-| [[https://github.com/jenkinsci/kubernetes-plugin][Kubernetes Plugin]]       | Jenkins plugin to run dynamic agents in a Kubernetes/Docker environment |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin][Credentials Plugin]]      | Load the ssh key                                                        |
-| [[https://wiki.jenkins.io/display/JENKINS/SiteMonitor+Plugin][SiteMonitor Plugin]]      | Monitor URLs                                                            |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Timestamper][Timestamper Plugin]]      | Add timestamp to job output                                             |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Dashboard+View][Dashboard View Plugin]]   | Create dashboard                                                        |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]    | Abort if job takes too long                                             |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Naginator+Plugin][Naginator Plugin]]        | Retry failed a job                                                      |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]       | Backup jenkins                                                          |
-| [[https://plugins.jenkins.io/jobConfigHistory][JobConfigHistory Plugin]] | Backup job configuration                                                |
-| [[https://wiki.jenkins.io/display/JENKINS/Build+User+Vars+Plugin][Build User Vars Plugin]]  | Describe the user who started the build                                 |
+** Jenkins Maintenance
+| Name                      | Comment                                                 |
+|---------------------------+---------------------------------------------------------|
+| Deploy Jenkins via docker | https://hub.docker.com/r/jenkins/jenkins/               |
+| Clean up old builds       | [[https://support.cloudbees.com/hc/en-us/articles/215549798-Best-Strategy-for-Disk-Space-Management-Clean-Up-Old-Builds?mobile_site=true][Link: CloudBees Best Strategy for Disk Space Management]] |
 ** More Resources
 http://groovy-lang.org/documentation.html#gettingstarted
 
