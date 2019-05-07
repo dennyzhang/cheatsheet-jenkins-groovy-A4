@@ -21,19 +21,34 @@
 - Related posts: [[https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-A4][Jenkins CheatSheet]], [[https://github.com/topics/denny-cheatsheets][#denny-cheatsheets]]
 
 File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/DennyZhang/cheatsheet-jenkins-groovy-A4][this repo]].
+** Jenkins Pipeline
+| Name                                      | Comment                                                          |
+|-------------------------------------------+------------------------------------------------------------------|
+| Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]= |
+| Run job in different agents               | =node($agent_label) {...}=                                       |
+| Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                           |
+| Actively fail current pipeline job        | =error("Build failed because of this and that..")=               |
+| Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep-going-with-errors.groovy][keep-going-with-errors.groovy]]                                    |
+| Send slack notification in pipeline       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/slack-notification.groovy][slack-notification.groovy]]                                        |
+| Pass parameter across jenkins jobs        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-pass-parameter.groovy][jenkinsfile-pass-parameter.groovy]]                                |
+| Set timeout & retry                       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-timeout-retry.groovy][jenkinsfile-timeout-retry.groovy]]                                 |
+| Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                       |
+| Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                  |
+| Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                    |
+| Reference                                 | [[https://github.com/jenkinsci/pipeline-model-definition-plugin/wiki/Syntax-Reference][Link: Syntax Reference]], [[https://jenkins.io/doc/][Link: Jenkins User Documentation]]         |
+| Reference                                 | [[https://gist.github.com/jonico/e205b16cf07451b2f475543cf1541e70][Link: Example]], [[https://gist.github.com/vdupain/832964527b4b8d7d4c648169dae8c656][Link: Example]]                                     |
 ** Config Jenkins Via Groovy
-| Name                                    | Comment                                                 |
-|-----------------------------------------+---------------------------------------------------------|
-| Set timezone for jenkins                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                         |
-| Configure default view                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
-| Configure Jenkins url                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-url.groovy][jenkins-url.groovy]]                                      |
-| Create a Jenkins user                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                              |
-| Groovy manages files/folders            | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/files-folder.groovy][files-folder.groovy]]                                     |
-| Configure max executors in Jenkins      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/master-executors.groovy][master-executors.groovy]]                                 |
-| Config jenkins kubernetes plugin        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                         |
-| Configure slack plugin                  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-slack.groovy][config-slack.groovy]]                                     |
-| Reference                               | [[https://github.com/cloudbees/jenkins-scripts][GitHub: cloudbees/jenkins-scripts]]                       |
-| Reference                               | [[https://github.com/jenkinsci/pipeline-examples][GitHub: jenkinsci/pipeline-examples]]                     |
+| Name                               | Comment                                                                |
+|------------------------------------+------------------------------------------------------------------------|
+| Set timezone for jenkins           | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                                        |
+| Configure default view             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                   |
+| Configure Jenkins url              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-url.groovy][jenkins-url.groovy]]                                                     |
+| Create a Jenkins user              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                                             |
+| Groovy manages files/folders       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/files-folder.groovy][files-folder.groovy]]                                                    |
+| Configure max executors in Jenkins | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/master-executors.groovy][master-executors.groovy]]                                                |
+| Config jenkins kubernetes plugin   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                                        |
+| Configure slack plugin             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-slack.groovy][config-slack.groovy]]                                                    |
+| Reference                          | [[https://github.com/cloudbees/jenkins-scripts][GitHub: cloudbees/jenkins-scripts]], [[https://github.com/jenkinsci/pipeline-examples][GitHub: jenkinsci/pipeline-examples]] |
 ** Jenkins Job Via Groovy
 | Name                                    | Comment                                                 |
 |-----------------------------------------+---------------------------------------------------------|
@@ -42,7 +57,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
 | Create and trigger a job                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-job.groovy][create-jenkins-job.groovy]]                               |
 | Manage jenkins jobs                     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/manage-jenkins-jobs.groovy][manage-jenkins-jobs.groovy]]                              |
-| Cancel queued jenkins jobs by regexp    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/kill_queued_jenkins.groovy][kill_queued_jenkins.groovy]]                              |
+| Cancel queued jenkins jobs by regexp    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/kill-queued-jenkins.groovy][kill-queued-jenkins.groovy]]                              |
 ** Jenkins Security Via Groovy
 | Name                                     | Comment                                  |
 |------------------------------------------+------------------------------------------|
@@ -86,20 +101,6 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 |----------------+---------------------------------------------------|
 | Get hostname   | =println InetAddress.localHost.canonicalHostName= |
 | Get IP address | =println InetAddress.localHost.hostAddress=       |
-** Jenkins Pipeline
-| Name                                      | Comment                                                          |
-|-------------------------------------------+------------------------------------------------------------------|
-| Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]= |
-| Run job in different agents               | =node($agent_label) {...}=                                       |
-| Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                           |
-| Actively fail current pipeline job        | =error("Build failed because of this and that..")=               |
-| Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep-going-with-errors.groovy][keep-going-with-errors.groovy]]                                    |
-| Send slack notification in pipeline       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/slack-notification.groovy][slack-notification.groovy]]                                        |
-| Pass parameter across jenkins jobs        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-pass-parameter.groovy][jenkinsfile-pass-parameter.groovy]]                                |
-| Set timeout & retry                       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-timeout-retry.groovy][jenkinsfile-timeout-retry.groovy]]                                 |
-| Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                       |
-| Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                  |
-| Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                    |
 #+BEGIN_HTML
 <a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 #+END_HTML
@@ -120,14 +121,15 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Run groovy online              | [[https://groovyconsole.appspot.com][SaaS: Groovy Web console]]                                  |
 | Run groovy script from Jenkins | [[https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console][Link: Jenkins Script Console]]                              |
 | Reference                      | [[http://groovy-lang.org][Link: Apache Groovy]]                                       |
-** Groovy String
-| Name                           | Comment                  |
-|--------------------------------+--------------------------|
-| [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][Convert list to string]]         | =l.join(";")=            |
-| Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]] |
-| Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]      |
-| [[http://groovy-lang.org/json.html][Convert string to json]]         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]]    |
-| Regex match                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/regexp-match.groovy][regexp-match.groovy]]      |
+** Groovy String/Regexp
+| Name                           | Comment                          |
+|--------------------------------+----------------------------------|
+| [[http://groovy-lang.org/groovy-dev-kit.html#_list_literals][Convert list to string]]         | =l.join(";")=                    |
+| Create string with multi-lines | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/multi-line-string.groovy][multi-line-string.groovy]]         |
+| Convert string to list         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/split-string.groovy][split-string.groovy]]              |
+| [[http://groovy-lang.org/json.html][Convert string to json]]         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]]            |
+| Remove tags                    | =input.replaceAll("\\<.*?>","")= |
+| Regex match                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/regexp-match.groovy][regexp-match.groovy]]              |
 ** Groovy Array
 | Name                        | Comment                                  |
 |-----------------------------+------------------------------------------|
@@ -183,13 +185,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 ** More Resources
 http://groovy-lang.org/documentation.html#gettingstarted
 
-https://github.com/jenkinsci/pipeline-model-definition-plugin/wiki/Syntax-Reference
-
 https://github.com/fabric8io/jenkins-docker
-
-https://gist.github.com/vdupain/832964527b4b8d7d4c648169dae8c656
-
-https://jenkins.io/doc/
 
 License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_license.txt][MIT License]].
 #+BEGIN_HTML

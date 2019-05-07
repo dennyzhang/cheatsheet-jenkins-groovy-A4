@@ -4,12 +4,12 @@
 // Licensed under MIT
 // https://www.dennyzhang.com/wp-content/mit_license.txt
 //
-// File: kill_queued_jenkins.groovy
+// File: kill-queued-jenkins.groovy
 // Author : Denny <https://www.dennyzhang.com/contact>
 // Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2019-05-01 16:29:38>
+// Updated: Time-stamp: <2019-05-07 09:53:48>
 //-------------------------------------------------------------------
 // https://gist.github.com/realityforge/c57eb3d1854320d14252ac881fc6cedf
 import hudson.model.*
