@@ -52,7 +52,8 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 ** Jenkins Job Via Groovy
 | Name                                    | Comment                                                 |
 |-----------------------------------------+---------------------------------------------------------|
-| List all jenkins jobs                   | =println Jenkins.instance.projects.collect { it.name }= |
+| List all my jenkins jobs                | =println Jenkins.instance.projects.collect { it.name }= |
+| List all jenkins jobs                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/list-all-jobs.groovy][list-all-jobs.groovy]]                                    |
 | Add a list of jobs by regexp to a view  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/addjobstoview-byregexp.groovy][addjobstoview-byregexp.groovy]]                           |
 | Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                    |
 | Create and trigger a job                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-job.groovy][create-jenkins-job.groovy]]                               |
@@ -89,6 +90,9 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]       | Backup jenkins                                                          |
 | [[https://plugins.jenkins.io/jobConfigHistory][JobConfigHistory Plugin]] | Backup job configuration                                                |
 | [[https://wiki.jenkins.io/display/JENKINS/Build+User+Vars+Plugin][Build User Vars Plugin]]  | Describe the user who started the build                                 |
+#+BEGIN_HTML
+<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
+#+END_HTML
 ** Jenkins Git Via Groovy
 | Name                                   | Comment                           |
 |----------------------------------------+-----------------------------------|
@@ -97,13 +101,12 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | List git tags and branches             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/git-list-tags-and-branches.groovy][git-list-tags-and-branches.groovy]] |
 
 ** Jenkins networking Via Groovy
-| Name           | Comment                                           |
-|----------------+---------------------------------------------------|
-| Get hostname   | =println InetAddress.localHost.canonicalHostName= |
-| Get IP address | =println InetAddress.localHost.hostAddress=       |
-#+BEGIN_HTML
-<a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
-#+END_HTML
+| Name                            | Comment                                                                  |
+|---------------------------------+--------------------------------------------------------------------------|
+| Get hostname                    | =println InetAddress.localHost.canonicalHostName=                        |
+| Get IP address                  | =println InetAddress.localHost.hostAddress=                              |
+| Get hostname by ip              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]                                                |
+| validate user input: ip address | =assert ip_address.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")= |
 ** Jenkins with Kubernetes/Docker
 | Name                                               | Comment                                                                 |
 |----------------------------------------------------+-------------------------------------------------------------------------|
@@ -157,11 +160,6 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | [[http://groovy-lang.org/json.html][Convert string to json]]     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]] |
 | Convert dictionary to json | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/dict-to-json.groovy][dict-to-json.groovy]]   |
 | Read and write json files  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/json-file.groovy][json-file.groovy]]      |
-** Groovy Network
-| Name                            | Comment                                                                  |
-|---------------------------------+--------------------------------------------------------------------------|
-| Get hostname by ip              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-ip-by-hostname.groovy][get-ip-by-hostname.groovy]]                                                |
-| validate user input: ip address | =assert ip_address.matches("\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}")= |
 #+BEGIN_HTML
 <a href="https://www.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/USDevOps/mywechat-slack-group/master/images/dns_small.png"></a>
 #+END_HTML
@@ -176,6 +174,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 |-------------------------------------+--------------------------------|
 | Check jenkins slave jar version     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/check-slave-jar-version.groovy][check-slave-jar-version.groovy]] |
 | Find dead executors and remove them | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/find-dead-executors.groovy][find-dead-executors.groovy]]     |
+| Set env for each agent              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/set-agent-env.groovy][set-agent-env.groovy]]           |
 ** Jenkins Maintenance
 | Name                            | Comment                                                 |
 |---------------------------------+---------------------------------------------------------|
