@@ -77,6 +77,10 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Create a jenkins secret text             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-secret-text.groovy][create-secret-text.groovy]]              |
 | Configure authorization in Jenkins       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/matrix-authorization-strategy.groovy][matrix-authorization-strategy.groovy]]   |
 | [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | -Djenkins.install.runSetupWizard=false |
+| [[https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control][Slave To Master Access Control]]           | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-slave-to-master-access.groovy][00-slave-to-master-access.groovy]]       |
+| [[https://wiki.jenkins.io/display/JENKINS/CSRF+Protection][CSRF Protection]]                          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-csrf.groovy][00-csrf.groovy]]                         |
+| Disable CLI over Remoting                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-disable-cli-remoting.groovy][00-disable-cli-remoting.groovy]]         |
+| Disable jnlp                             | =jenkins.setSlaveAgentPort(-1);=       |
 ** Load Jenkins settings via folder copy
 | Name                                 | Comment                                                                  |
 |--------------------------------------+--------------------------------------------------------------------------|
@@ -127,6 +131,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 |--------------------------------+-----------------------------------------------------------|
 | Get environment variables      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/get-env.groovy][get-env.groovy]]                                            |
 | Groovy execute command         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/execute-command.groovy][execute-command.groovy]]                                    |
+| [[https://stackoverflow.com/questions/2060427/groovy-grails-how-to-determine-a-data-type][Get data type of a variable]]    | =myObject.getClass()=                                     |
 | Print stdout                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/print.groovy][print.groovy]] echo 'Action is done', println "Hello World" |
 | Use boolean parameter          | if (istrue == "false") {...}                              |
 | Basic integer caculation       | def a = 3, b = 7; println "$a + $b = ${a + b}"            |
@@ -144,6 +149,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | [[http://groovy-lang.org/json.html][Convert string to json]]         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]]            |
 | Remove tags                    | =input.replaceAll("\\<.*?>","")= |
 | Regex match                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/regexp-match.groovy][regexp-match.groovy]]              |
+| Reference                      | [[https://www.ngdc.noaa.gov/wiki/index.php/Regular_Expressions_in_Groovy][Regular Expressions in Groovy]]    |
 ** Groovy Array
 | Name                        | Comment                                  |
 |-----------------------------+------------------------------------------|
