@@ -9,7 +9,7 @@
 // Link: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-a4
 // --
 // Created : <2018-04-20>
-// Updated: Time-stamp: <2019-05-01 16:51:38>
+// Updated: Time-stamp: <2019-05-23 14:37:35>
 //-------------------------------------------------------------------
 // imports
 import jenkins.model.Jenkins
@@ -27,3 +27,9 @@ for (item in Jenkins.instance.projects.collect()) {
         myView.doAddJobToView(item.name)
     }
 }
+
+// Add by regexp
+viewName = 'Integration'
+jenkins.addView(new ListView(viewName))
+myView = hudson.model.Hudson.instance.getView(viewName)
+myView.setIncludeRegex(".*Integration.*")

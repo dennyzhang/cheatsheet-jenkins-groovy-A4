@@ -1,0 +1,35 @@
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>all</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+    <com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView plugin="build-monitor-plugin@1.12+build.201809061734">
+      <owner class="hudson" reference="../../.."/>
+      <name>AutoReport</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>DetectTestbedFormatChanges</string>
+        <string>MonitorDownloadURLs</string>
+        <string>NightlyProvisionBasicTest</string>
+        <string>NightlyProvisionGear2Test</string>
+        <string>NightlyProvisionIntegrationTest</string>
+        <string>ProvisionPKSEnvNimbus</string>
+        <string>ProvisionPKSEnvNimbusAdvancew</string>
+      </jobNames>
+      <jobFilters/>
+      <columns/>
+      <recurse>false</recurse>
+      <title>AutoReport</title>
+      <config>
+        <displayCommitters>false</displayCommitters>
+        <buildFailureAnalyzerDisplayedField>Name</buildFailureAnalyzerDisplayedField>
+        <order class="com.smartcodeltd.jenkinsci.plugins.buildmonitor.order.ByName"/>
+      </config>
+    </com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView>
+  </views>
