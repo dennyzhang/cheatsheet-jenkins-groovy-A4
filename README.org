@@ -22,40 +22,49 @@
 
 File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Issues]] or star [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4][this repo]].
 ** Jenkins Pipeline
-| Name                                      | Comment                                                               |
-|-------------------------------------------+-----------------------------------------------------------------------|
-| Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]=      |
-| Run job in different agents               | =node($agent_label) {...}=                                            |
-| Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                                |
-| Actively fail current pipeline job        | =error("Build failed because of this and that..")=                    |
-| [[https://stackoverflow.com/questions/43875093/check-if-property-exists-groovy][Check whether property exists]]             | =if (env.keep_failed_env)=                                            |
-| [[https://stackoverflow.com/questions/47039924/jenkins-pipeline-enable-timestamps-in-build-log-console][Jenkins Pipeline enable timestamps]]        | =options{timestamps()}=                                               |
-| [[https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/#code-withenv-code-set-environment-variables][Set envs within a jenkins pipeline]]        | =withEnv(["key1=$var1"])=                                             |
-| Install plugin via groovy                 | =Hudson.instance.updateCenter.getPlugin(plugin).deploy().get()=       |
-| Keep previous job run via groovy          | =buildDiscarder(logRotator(daysToKeepStr: '20', numToKeepStr: '60'))= |
-| Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep-going-with-errors.groovy][keep-going-with-errors.groovy]]                                         |
-| Send slack notification in pipeline       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/slack-notification.groovy][slack-notification.groovy]]                                             |
-| Pass parameter across jenkins jobs        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-pass-parameter.groovy][jenkinsfile-pass-parameter.groovy]]                                     |
-| Set timeout & retry                       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-timeout-retry.groovy][jenkinsfile-timeout-retry.groovy]]                                      |
-| Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                            |
-| Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                       |
-| Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                         |
-| Reference                                 | [[https://github.com/jenkinsci/pipeline-model-definition-plugin/wiki/Syntax-Reference][Link: Syntax Reference]], [[https://jenkins.io/doc/][Link: Jenkins User Documentation]]              |
-| Reference                                 | [[http://docs.groovy-lang.org/latest/html/documentation/][Link: Groovy Language Documentation]]                                   |
-| Reference                                 | [[https://gist.github.com/jonico/e205b16cf07451b2f475543cf1541e70][Link: Example]], [[https://gist.github.com/vdupain/832964527b4b8d7d4c648169dae8c656][Link: Example]]                                          |
+| Name                                      | Comment                                                                   |
+|-------------------------------------------+---------------------------------------------------------------------------|
+| Specify parameter to run jobs             | =build job:'job1', parameters:[string(name:'name1', value:va1)]=          |
+| Run job in different agents               | =node($agent_label) {...}=                                                |
+| Ask for user input                        | =stage('stage2'){ input "OK to go?" }=                                    |
+| Actively fail current pipeline job        | =error("Build failed because of this and that..")=                        |
+| List all Jenkins plugins and versions     | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/list-all-plugins.groovy][list-all-plugins.groovy]]                                                   |
+| [[https://stackoverflow.com/questions/43875093/check-if-property-exists-groovy][Check whether property exists]]             | =if (env.keep_failed_env)=                                                |
+| [[https://stackoverflow.com/questions/47039924/jenkins-pipeline-enable-timestamps-in-build-log-console][Jenkins Pipeline enable timestamps]]        | =options{timestamps()}=                                                   |
+| [[https://jenkins.io/doc/pipeline/steps/workflow-basic-steps/#code-withenv-code-set-environment-variables][Set envs within a jenkins pipeline]]        | =withEnv(["key1=$var1"])=                                                 |
+| Install plugin via groovy                 | =Hudson.instance.updateCenter.getPlugin(plugin).deploy().get()=           |
+| Keep previous job run via groovy          | =buildDiscarder(logRotator(daysToKeepStr: '20', numToKeepStr: '60'))=     |
+| [[https://jenkins.io/doc/book/pipeline/syntax/][Customize job workspace]]                   | =customWorkspace "/some/other/path"=                                      |
+| [[https://jenkins.io/doc/pipeline/steps/workflow-scm-step/][git scm checkout to relative directory]]    | =extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'XXX']]= |
+| Keep going when previous stage has failed | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/keep-going-with-errors.groovy][keep-going-with-errors.groovy]]                                             |
+| Send slack notification in pipeline       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/slack-notification.groovy][slack-notification.groovy]]                                                 |
+| Pass parameter across jenkins jobs        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-pass-parameter.groovy][jenkinsfile-pass-parameter.groovy]]                                         |
+| Set timeout & retry                       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-timeout-retry.groovy][jenkinsfile-timeout-retry.groovy]]                                          |
+| Use finally to do cleanup                 | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-finally.groovy][jenkinsfile-finally.groovy]]                                                |
+| Run jenkins jobs in a sequential way      | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-sequentially.groovy][jenkinsfile-sequentially.groovy]]                                           |
+| Run jenkins jobs in parallel              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkinsfile-parallelly.groovy][jenkinsfile-parallelly.groovy]]                                             |
+| Reference                                 | [[https://github.com/jenkinsci/pipeline-model-definition-plugin/wiki/Syntax-Reference][Link: Syntax Reference]], [[https://jenkins.io/doc/][Link: Jenkins User Documentation]]                  |
+| Reference                                 | [[http://docs.groovy-lang.org/latest/html/documentation/][Link: Groovy Language Documentation]]                                       |
+| Reference                                 | [[https://gist.github.com/jonico/e205b16cf07451b2f475543cf1541e70][Link: Example]], [[https://gist.github.com/vdupain/832964527b4b8d7d4c648169dae8c656][Link: Example]]                                              |
 ** Config Jenkins Via Groovy
-| Name                                | Comment                                                                |
-|-------------------------------------+------------------------------------------------------------------------|
-| Set timezone for jenkins            | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                                        |
-| Configure default view              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                   |
-| Configure Jenkins url               | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-url.groovy][jenkins-url.groovy]]                                                     |
-| Create a Jenkins user               | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                                             |
-| Groovy manages files/folders        | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/files-folder.groovy][files-folder.groovy]]                                                    |
-| Configure max executors in Jenkins  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/master-executors.groovy][master-executors.groovy]]                                                |
-| Configure slack plugin              | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-slack.groovy][config-slack.groovy]]                                                    |
-| Configure pipeline shared libraries | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-pipeline-library.groovy][config-pipeline-library.groovy]]                                         |
-| [[https://stackoverflow.com/questions/34585356/get-jenkins-version-via-java-jar-jenkins-war-version-without-spam-output][Get jenkins version from CLI]]        | =java -jar /usr/share/jenkins/jenkins.war --version=                   |
-| Reference                           | [[https://github.com/cloudbees/jenkins-scripts][GitHub: cloudbees/jenkins-scripts]], [[https://github.com/jenkinsci/pipeline-examples][GitHub: jenkinsci/pipeline-examples]] |
+| Name                                 | Comment                                                                                   |
+|--------------------------------------+-------------------------------------------------------------------------------------------|
+| Set timezone for jenkins             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/timezone.groovy][timezone.groovy]]                                                                           |
+| Set timezone for jenkins             | =System.setProperty('org.apache.commons.jelly.tags.fmt.timeZone', 'America/Los_Angeles')= |
+| Configure default view               | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                                      |
+| Configure Jenkins url                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-url.groovy][jenkins-url.groovy]]                                                                        |
+| Create a Jenkins user                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-jenkins-user.groovy][create-jenkins-user.groovy]]                                                                |
+| Groovy manages files/folders         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/files-folder.groovy][files-folder.groovy]]                                                                       |
+| Configure max executors in Jenkins   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/master-executors.groovy][master-executors.groovy]]                                                                   |
+| Configure only 1 executor per worker | For each agent, configure # of executors                                                  |
+| Configure slack plugin               | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-slack.groovy][config-slack.groovy]]                                                                       |
+| Configure pipeline shared libraries  | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/config-pipeline-library.groovy][config-pipeline-library.groovy]]                                                            |
+| [[https://stackoverflow.com/questions/34585356/get-jenkins-version-via-java-jar-jenkins-war-version-without-spam-output][Get jenkins version from CLI]]         | =java -jar /usr/share/jenkins/jenkins.war --version=                                      |
+| Reference                            | [[https://github.com/cloudbees/jenkins-scripts][GitHub: cloudbees/jenkins-scripts]], [[https://github.com/jenkinsci/pipeline-examples][GitHub: jenkinsci/pipeline-examples]]                    |
+** Jenkins Trouble Shooting
+| Name                                             | Comment                   |
+|--------------------------------------------------+---------------------------|
+| List performance metrics for each Jenkins agents | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/list-all-jenkins-agent.sh][list-all-jenkins-agent.sh]] |
 ** Jenkins Kubernetes Via Groovy
 | Name                                | Comment                                     |
 |-------------------------------------+---------------------------------------------|
@@ -70,6 +79,9 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Create jenkins views and add jobs to it | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-views.groovy][jenkins-views.groovy]]                                                       |
 | [[https://github.com/jan-molak/jenkins-build-monitor-plugin/blob/master/build-monitor-plugin/src/main/java/com/smartcodeltd/jenkinsci/plugins/buildmonitor/BuildMonitorView.java][Add a view of build monitor view plugin]] | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/build-monitor-views.xml][build-monitor-views.xml]]                                                    |
 | [[https://stackoverflow.com/questions/39111350/how-to-set-a-views-description-in-groovy][Change view description in groovy]]       | =myView.doSubmitDescription=                                               |
+#+BEGIN_HTML
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
+#+END_HTML
 ** Jenkins Job Via Groovy
 | Name                                            | Comment                                                 |
 |-------------------------------------------------+---------------------------------------------------------|
@@ -89,18 +101,20 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | password | =password(name: 'key1', defaultValue: 'SECRET', description: 'Enter a password')=    |
 | file     | =file(name: 'key1', description: 'Choose a file to upload')=                         |
 ** Jenkins Security Via Groovy
-| Name                                     | Comment                                                  |
-|------------------------------------------+----------------------------------------------------------|
-| logged-in users can do anything          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/logged-in-users.groovy][logged-in-users.groovy]]                                   |
-| [[https://wiki.jenkins.io/display/JENKINS/LDAP+Plugin][Enable ldap in Jenkins]]                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/enable-ldap.groovy][enable-ldap.groovy]]                                       |
-| Create a jenkins secret text             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-secret-text.groovy][create-secret-text.groovy]]                                |
-| Configure authorization in Jenkins       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/matrix-authorization-strategy.groovy][matrix-authorization-strategy.groovy]]                     |
-| [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | -Djenkins.install.runSetupWizard=false                   |
-| [[https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control][Slave To Master Access Control]]           | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-slave-to-master-access.groovy][00-slave-to-master-access.groovy]]                         |
-| [[https://wiki.jenkins.io/display/JENKINS/CSRF+Protection][CSRF Protection]]                          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-csrf.groovy][00-csrf.groovy]]                                           |
-| Disable CLI over Remoting                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-disable-cli-remoting.groovy][00-disable-cli-remoting.groovy]]                           |
-| Disable jnlp                             | =jenkins.setSlaveAgentPort(-1)=                          |
-| [[https://wiki.jenkins.io/display/JENKINS/Authorize+Project+plugin][Access Control for Builds]]                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins.security.QueueItemAuthenticatorConfiguration.xml][jenkins.security.QueueItemAuthenticatorConfiguration.xml]] |
+| Name                                     | Comment                                                          |
+|------------------------------------------+------------------------------------------------------------------|
+| logged-in users can do anything          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/logged-in-users.groovy][logged-in-users.groovy]]                                           |
+| [[https://wiki.jenkins.io/display/JENKINS/LDAP+Plugin][Enable ldap in Jenkins]]                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/enable-ldap.groovy][enable-ldap.groovy]]                                               |
+| Create a jenkins secret text             | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/create-secret-text.groovy][create-secret-text.groovy]]                                        |
+| Configure authorization in Jenkins       | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/matrix-authorization-strategy.groovy][matrix-authorization-strategy.groovy]]                             |
+| [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | -Djenkins.install.runSetupWizard=false                           |
+| [[https://stackoverflow.com/questions/35960883/how-to-unlock-jenkins][Jenkins skip wizzard when initialization]] | =instance.setInstallState(InstallState.INITIAL_SETUP_COMPLETED)= |
+| [[https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control][Slave To Master Access Control]]           | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-slave-to-master-access.groovy][00-slave-to-master-access.groovy]]                                 |
+| [[https://wiki.jenkins.io/display/JENKINS/CSRF+Protection][CSRF Protection]]                          | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-csrf.groovy][00-csrf.groovy]]                                                   |
+| Add Jenkins permission                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-permission.groovy][jenkins-permission.groovy]]                                        |
+| Disable CLI over Remoting                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/00-disable-cli-remoting.groovy][00-disable-cli-remoting.groovy]]                                   |
+| Disable jnlp                             | =jenkins.setSlaveAgentPort(-1)=                                  |
+| [[https://wiki.jenkins.io/display/JENKINS/Authorize+Project+plugin][Access Control for Builds]]                | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins.security.QueueItemAuthenticatorConfiguration.xml][jenkins.security.QueueItemAuthenticatorConfiguration.xml]]         |
 ** Load Jenkins settings via folder copy
 | Name                                 | Comment                                                                  |
 |--------------------------------------+--------------------------------------------------------------------------|
@@ -110,25 +124,28 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Add jenkins groovy scripts           | =COPY config/*.groovy /usr/share/jenkins/ref/init.groovy.d/=             |
 | Configure Jenkins with some defaults | =COPY config/*.xml /usr/share/jenkins/ref/=                              |
 | [[https://github.com/jenkinsci/docker/tree/587b2856cd225bb152c4abeeaaa24934c75aa460#script-usage][Install jenkins plugins]]              | =/usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt= |
-** Jenkins Plugins
-| Plugin                    | Summary                                                                   |
-|---------------------------+---------------------------------------------------------------------------|
-| [[https://github.com/jenkinsci/kubernetes-plugin][Kubernetes Plugin]]         | Jenkins plugin to run dynamic agents in a Kubernetes/Docker environment   |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin][Credentials Plugin]]        | Load the ssh key                                                          |
-| [[https://wiki.jenkins.io/display/JENKINS/SiteMonitor+Plugin][SiteMonitor Plugin]]        | Monitor URLs                                                              |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Timestamper][Timestamper Plugin]]        | Add timestamp to job output                                               |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Dashboard+View][Dashboard View Plugin]]     | Create dashboard                                                          |
-| [[https://wiki.jenkins.io/display/JENKINS/Log+Parser+Plugin][Log Parser Plugin]]         | Parse the console output and highlight error/warning/info lines.          |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]      | Abort if job takes too long                                         |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/Naginator+Plugin][Naginator Plugin]]          | Retry failed a job                                                        |
-| [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]         | Backup jenkins                                                            |
-| [[https://plugins.jenkins.io/jobConfigHistory][JobConfigHistory Plugin]]   | Backup job configuration                                                  |
-| [[https://wiki.jenkins.io/pages/viewpage.action?pageId=60915753]["Anything Goes" formatter]] | use JavaScript inside your project description                            |
-| [[https://wiki.jenkins.io/display/JENKINS/AnsiColor+Plugin][AnsiColor Plugin]]          | Add support for ANSI escape sequences, including color, to Console Output |
-| [[https://wiki.jenkins.io/display/JENKINS/Build+User+Vars+Plugin][Build User Vars Plugin]]    | Describe the user who started the build                                   |
 #+BEGIN_HTML
 <a href="https://cheatsheet.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
 #+END_HTML
+** Jenkins Plugins
+| Plugin                     | Summary                                                                   |
+|----------------------------+---------------------------------------------------------------------------|
+| [[https://github.com/jenkinsci/kubernetes-plugin][Kubernetes Plugin]]          | Jenkins plugin to run dynamic agents in a Kubernetes/Docker environment   |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin][Credentials Plugin]]         | Load the ssh key                                                          |
+| [[https://wiki.jenkins.io/display/JENKINS/SiteMonitor+Plugin][SiteMonitor Plugin]]         | Monitor URLs                                                              |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Timestamper][Timestamper Plugin]]         | Add timestamp to job output                                               |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Dashboard+View][Dashboard View Plugin]]      | Create dashboard                                                          |
+| [[https://wiki.jenkins.io/display/JENKINS/Log+Parser+Plugin][Log Parser Plugin]]          | Parse the console output and highlight error/warning/info lines.          |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin][Build-timeout Plugin]]       | Abort if job takes too long                                               |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/Naginator+Plugin][Naginator Plugin]]           | Retry failed a job                                                        |
+| [[https://wiki.jenkins-ci.org/display/JENKINS/thinBackup][ThinBackup Plugin]]          | Backup jenkins                                                            |
+| [[https://plugins.jenkins.io/jobConfigHistory][JobConfigHistory Plugin]]    | Backup job configuration                                                  |
+| [[https://wiki.jenkins.io/pages/viewpage.action?pageId=60915753]["Anything Goes" formatter]]  | use JavaScript inside your project description                            |
+| [[https://wiki.jenkins.io/display/JENKINS/AnsiColor+Plugin][AnsiColor Plugin]]           | Add support for ANSI escape sequences, including color, to Console Output |
+| [[https://wiki.jenkins.io/display/JENKINS/Build+User+Vars+Plugin][Build User Vars Plugin]]     | Describe the user who started the build                                   |
+| [[https://wiki.jenkins.io/display/JENKINS/GitLab+Plugin][Gitlab Plugin]]              | Allows GitLab to trigger Jenkins builds                                   |
+| [[https://wiki.jenkins.io/display/JENKINS/Workspace+Cleanup+Plugin][Workspace Cleanup]]          | Plugin to delete the build workspace.                                     |
+| [[https://wiki.jenkins.io/display/JENKINS/UpdateSites+Manager+plugin][UpdateSites Manager plugin]] | manage update sites, where Jenkins accesses in order to retrieve plugins  |
 ** Jenkins Git Via Groovy
 | Name                                   | Comment                           |
 |----------------------------------------+-----------------------------------|
@@ -149,6 +166,7 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | [[https://github.com/jenkinsci/kubernetes-plugin][Kubernetes Plugin]]                                  | Jenkins plugin to run dynamic agents in a Kubernetes/Docker environment |
 | Config jenkins kubernetes plugin                   | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/jenkins-kubernetes-cloud.groovy][jenkins-kubernetes-cloud.groovy]]                                         |
 | Cleanup for Docker stale containers/images/volumes | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/docker-cleanup.groovy][docker-cleanup.groovy]]                                                   |
+| Jenkins customize docker build args                | =additionalBuildArgs '--build-arg SSH_PRIVATE_KEY...'=                  |
 ** Groovy Common Errors/Exceptions
 | Name               | Comment                                    |
 |--------------------+--------------------------------------------|
@@ -166,7 +184,10 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | Run groovy online              | [[https://groovyconsole.appspot.com][SaaS: Groovy Web console]]                                  |
 | Run groovy script from Jenkins | [[https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console][Link: Jenkins Script Console]]                              |
 | Reference                      | [[http://groovy-lang.org][Link: Apache Groovy]]                                       |
-** Groovy String/Regexp
+#+BEGIN_HTML
+<a href="https://cheatsheet.dennyzhang.com"><img align="right" width="185" height="37" src="https://raw.githubusercontent.com/dennyzhang/cheatsheet.dennyzhang.com/master/images/cheatsheet_dns.png"></a>
+#+END_HTML
+** Groovy String
 | Name                           | Comment                                                        |
 |--------------------------------+----------------------------------------------------------------|
 | Check string startsWith        | =assert s.startsWith("\t")=                                    |
@@ -178,8 +199,11 @@ File me [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/issues][Iss
 | [[http://groovy-lang.org/json.html][Convert string to json]]         | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/string-to-json.groovy][string-to-json.groovy]]                                          |
 | Remove tags                    | =input.replaceAll("\\<.*?>","")=                               |
 | Regex match                    | [[https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4/blob/master/regexp-match.groovy][regexp-match.groovy]]                                            |
-| [[https://www.ngdc.noaa.gov/wiki/index.php/Regular_Expressions_in_Groovy][Regex case insensitive]]         | (item.name == ~/(?i).*NSX.*/ )                                 |
-| Reference                      | [[https://www.ngdc.noaa.gov/wiki/index.php/Regular_Expressions_in_Groovy][Regular Expressions in Groovy]]                                  |
+** Groovy Regexp
+| Name                   | Comment                        |
+|------------------------+--------------------------------|
+| [[https://www.ngdc.noaa.gov/wiki/index.php/Regular_Expressions_in_Groovy][Regex case insensitive]] | (item.name == ~/(?i).*NSX.*/ ) |
+| Reference              | [[https://www.ngdc.noaa.gov/wiki/index.php/Regular_Expressions_in_Groovy][Regular Expressions in Groovy]]  |
 ** Groovy Array
 | Name                        | Comment                                  |
 |-----------------------------+------------------------------------------|
@@ -264,7 +288,7 @@ License: Code is licensed under [[https://www.dennyzhang.com/wp-content/mit_lice
 #+LATEX_HEADER: \rhead{Updated: \today}
 #+LATEX_HEADER: \rfoot{\thepage\ of \pageref{LastPage}}
 #+LATEX_HEADER: \lfoot{\href{https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4}{GitHub: https://github.com/dennyzhang/cheatsheet-jenkins-groovy-A4}}
-#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-slack-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-A4}}
+#+LATEX_HEADER: \lhead{\href{https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-A4}{Blog URL: https://cheatsheet.dennyzhang.com/cheatsheet-jenkins-groovy-A4}}
 #+AUTHOR: Denny Zhang
 #+EMAIL:  denny@dennyzhang.com
 #+TAGS: noexport(n)
@@ -1082,6 +1106,7 @@ https://stackoverflow.com/questions/36088227/how-to-run-a-docker-command-in-jenk
 https://stackoverflow.com/questions/42859443/execute-docker-commands-in-jenkins-in-docker-container
 ** TODO Use AWS S3 for my critical backup: Jenkins configurations
 * TODO [#A] try Jenkins X                                          :noexport:
+* TODO jenkins pipeline run docker container                       :noexport:
 * TODO jenkins enable github authentication                        :noexport:
 https://jenkins.io/solutions/github/
 * useful link                                                      :noexport:
@@ -1221,7 +1246,6 @@ https://stackoverflow.com/questions/49739933/jenkins-pipeline-credentials-for-al
 * TODO Configure jenkins slave Node                                :noexport:
 * TODO Semantic Versioning class for Groovy                        :noexport:
 https://gist.github.com/michaellihs/a6621376393821d6d206ccfc8dbf86ec
-* #  --8<-------------------------- separator ------------------------>8-- :noexport:
 * TODO [#A] Run jenkins pipeline code inside docker image          :noexport:
 https://akomljen.com/set-up-a-jenkins-ci-cd-pipeline-with-kubernetes/
 https://gist.github.com/cyrille-leclerc/8cad9d1b35ea553820a1
@@ -1259,3 +1283,49 @@ https://wiki.jenkins.io/display/JENKINS/Cobertura+Plugin
 https://vmoperator.svc.eng.vmware.com/view/Auth%20Service/job/gcm-build/59/
 * jenkins groovy timeout set the value                             :noexport:
 https://stackoverflow.com/questions/38597006/input-step-with-timeout-which-continues-with-default-settings-using-jenkins-pipe?rq=1
+* TODO Integrate GitLab MR with Jenkins Job in your CI Pipeline    :noexport:
+https://confluence.eng.vmware.com/display/BUTLER/Jenkins+Troubleshooting#JenkinsTroubleshooting-Jenkinsgitlabplugin:Can'ttriggerbuildsonAcceptedMergeRequests
+
+#+BEGIN_EXAMPLE
+
+Create a Pipeline Job and configure Build Trigger as follows
+
+Please Note that "Filter merge request by label" is optional. If you add any label, this job will be triggered only when the MR contains these labels
+Generate Secret toke by clicking "Generate" button. (Please make note of the token, we need to enter same value in the GitLab hook in Step 3)
+Configure your Pipeline job location. (Jenkins Job will scan the git-repo that you configure for "Jenkinsfile" file)
+
+Credentials : You can use whoever have atleast "developer" permission on this project.
+Branches to build: "${gitlabSourceRepoName}/${gitlabSourceBranch}"
+Script path: This is the path to the Jenkinsfile in your repo.
+Save your pipeline job.
+Now, its time to configure the webhook in GitLab repo to trigger this job on MR.
+Go to your repo in GitLab → Settings → Integrations
+
+Enter the token that you generated in your Jenkins pipeline job and enable all appropriate checkboxes for your project.
+Add GitLab logger in Jenkins
+Go to Jenkins -> Manage Jenkins -> System Log
+Add new log recorder
+Enter 'Gitlab plugin' or whatever you want for the name
+On the next page, enter 'com.dabsquared.gitlabjenkins' for Logger, set log level to FINEST, and save
+Then click on your Gitlab plugin log, click 'Clear this log' if necessary, and then use GitLab to trigger some actions
+Refresh the log page and you should see output
+Go back to the Integration page in the GitLab, click on "Test" button to see if your webhook is triggering the Jenkins job. you can just see the log in the Jenkins under the logger you just created in previous step
+Send a Dummy MR to the branch (Make sure you add the "labels" if you enabled any filtering in your job) and see if the pipeline is getting triggered, if not, check the logs in the Jenkins and Gitlab (by editing the hook, you can see the Recent Deliveries)
+More info: https://github.com/jenkinsci/gitlab-plugin
+More info on writing pipeline stages with GitLab: https://gitlab.eng.XXX.com/devtools/butler/butler-next/blob/butler-generic-workflow/api/Jenkinsfile
+#+END_EXAMPLE
+* TODO jenkins pipeline use array                                  :noexport:
+* TODO jenkins groovy format string                                :noexport:
+* groovy                                                           :noexport:
+String fileContents = "zdenny-vdnet-esx-sb-30035046-1-poc-dev-denny-22 | 10.161.178.251 zdenny-vdnet-esx-sb-30035046-3-poc-dev-denny-22 | 10.161.164.134 zdenny-vdnet-esx-sb-30035046-2-poc-dev-denny-22 | 10.161.166.34 zdenny-vdnet-esx-sb-30035046-100-poc-dev-denny-22 | 10.161.181.6 zdenny-vdnet-vc-sb-30035088-1-poc-dev-denny-22 | 10.161.182.121 zdenny-vdnet-nsxmanager-14880419-1-poc-dev-denny-22 | 10.161.184.67 zdenny-wn-1-poc-dev-denny-22";
+
+def digitPattern = ~/.*(vdnet-vc).*/;
+
+def matcher = fileContents =~ digitPattern;
+matcher.size();
+matcher[0]
+matcher[1]
+
+// digitPattern.matcher(fileContents).find()
+
+ [0-9]+\.[0-9]+\.[0-9]+121
